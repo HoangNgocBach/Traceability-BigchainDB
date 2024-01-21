@@ -1,0 +1,8 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeEditing/Localization/MoveToResource/LastResourceFile/@EntryValue">D7F6DD0B-EC24-45AA-A127-907EDF74E05B/d:Resources/f:Resource.resx</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=VIEWS_005CFNHOMTHANGCT_005CUPDATETABC1/@EntryIndexedValue">Views\Fnhomthangct\UpdateTabc1</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=VIEWS_005CSHARED_005CFAVICON_002EICO/@EntryIndexedValue">Views\Shared\favicon.ico</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=VIEWS_005CVVIDEO_005CUPDATE/@EntryIndexedValue">Views\Vvideo\Update</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=VIEWS_005CFNHOMTHANGCT_005CUPDATETABC1/@EntryIndexedValue">Views\Fnhomthangct\UpdateTabc1</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=VIEWS_005CSHARED_005CFAVICON_002EICO/@EntryIndexedValue">Views\Shared\favicon.ico</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=VIEWS_005CVVIDEO_005CUPDATE/@EntryIndexedValue">Views\Vvideo\Update</s:String></wpf:ResourceDictionary>

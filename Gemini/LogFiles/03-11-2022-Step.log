@@ -1,0 +1,22 @@
+2022-11-03 14:56:30,829: [ERROR] System.InvalidCastException: Unable to cast object of type 'System.Security.Principal.GenericIdentity' to type 'System.Web.Security.FormsIdentity'.
+   at Gemini.Controllers._01_Hethong.AdminController.Index() in C:\ProjectOS\Corework\Gemini\Controllers\01_Hethong\AdminController.cs:line 31
+2022-11-03 14:56:36,543: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-03 14:56:36,809: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-03 14:56:43,847: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-03 14:56:43,862: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-03 18:47:37,365: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-03 18:47:37,389: [DEBUG] AdminController-Login: Tài kho?n chua kích ho?t
+2022-11-03 18:47:42,966: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-03 18:47:42,981: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-03 21:31:08,880: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-03 21:31:08,903: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-03 21:36:53,064: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-03 21:36:53,103: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-03 21:38:01,245: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-11-03 21:38:01,247: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-11-03 21:38:41,232: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-11-03 21:38:41,240: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-11-03 21:39:30,516: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-11-03 21:39:30,526: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-11-03 21:39:51,560: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-11-03 21:39:51,560: [DEBUG] System.Data.Entity.Validation.DbValidationError

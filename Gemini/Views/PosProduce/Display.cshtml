@@ -1,0 +1,449 @@
+﻿@model Gemini.Models._03_Pos.PosProduceModel
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Với mô hình là trung tâm cung cấp thông tin minh bạch về nguồn gốc thực phẩm, hệ thống truy xuất nguồn gốc điện tử KTechMA mang lại nhiều lợi ích vượt trội cho cả doanh nghiệp và người tiêu dùng">
+    <meta name="keywords" content="truy xuất nguồn gốc điện tử">
+    <title>KTechMA - Giải pháp truy xuất nguồn gốc &amp; xác thực thông tin</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="~/assets/theme/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/theme/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/theme/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/theme/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/theme/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/theme/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/theme/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/theme/css/style.css" type="text/css">
+    <link rel="stylesheet" href="~/assets/theme/index/css/display-produce.css" type="text/css">
+</head>
+
+<body>
+    <style>
+        #popup {
+            top: auto;
+            bottom: 10px;
+            outline: none;
+        }
+
+        .a-hover:hover {
+            cursor: pointer;
+        }
+
+        .un-style-a {
+            color: unset;
+        }
+
+            .un-style-a:hover {
+                color: unset;
+            }
+
+        .un-style-a-blockchain:hover {
+            color: unset;
+        }
+
+        .nav-tabs > .nav-item > .active {
+            border-bottom: 1px solid;
+        }
+
+        .text-red {
+            color: red !important;
+        }
+
+        .a-footer {
+            color: #000;
+        }
+
+            .a-footer:hover {
+                color: #000;
+            }
+
+        .title-footer:hover {
+            color: #007bff;
+        }
+    </style>
+
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="/" style="text-transform: uppercase; font-size: 1.5em; font-weight: 900;">KTechMA</a>
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__auth">
+                <a href="/admin"><i class="fa fa-user"></i> @ViewBag.CurrentUsername</a>
+            </div>
+        </div>
+        @if (ViewBag.CurrentUsername == "Đăng nhập")
+        {
+            <div class="humberger__menu__widget" style="margin-left: 10px">
+                <div class="header__top__right__auth">
+                    <a href="/admin/Admin/Register"><i class="fa fa-registered"></i> Đăng ký</a>
+                </div>
+            </div>
+        }
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/danh-muc">Sản phẩm</a></li>
+                <li><a href="/ve-chung-toi">Về chúng tôi</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__auth">
+                <a href="/" class="page-scroll"> <img src="/assets/theme/index/img/vn-flag.png" width="20"></a>
+            </div>
+        </div>
+        <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> duongtq6797@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Humberger End -->
+    <!-- Header Section Begin -->
+    <header class="header" style="background-color: #0591c7;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo" style="padding: 20px 0;">
+                        <a href="/" style="text-transform: uppercase; font-size: 1.5em; font-weight: 900; color: #fff">KTechMA</a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <nav class="header__menu" style="float: right;">
+                        <ul id="menu">
+                            <li><a href="/" style="color: #fff">Trang chủ</a></li>
+                            <li><a href="/danh-muc" style="color: #fff">Sản phẩm</a></li>
+                            <li><a href="/ve-chung-toi" style="color: #fff">Về chúng tôi</a></li>
+                            <li><a href="/admin" class="page-scroll" title="@ViewBag.CurrentUsername"> <img src="/assets/theme/index/img/login-icon.png" width="20"></a></li>
+                            <li><a href="/" class="page-scroll"> <img src="/assets/theme/index/img/vn-flag.png" width="20"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars" style="color: white"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    @if (Model.PosProcess != null && !string.IsNullOrWhiteSpace(Model.PosProcess.BigchainDBTransactionId))
+    {
+        <div class="modal fade" id="popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="position: fixed; bottom: 5px; right: 5px; width: 350px; height: 450px">
+                    <div class="modal-header">
+                        <img src="~/Content/icons/firewall-success.png" width="35" id="imgFirewallSuccess" />
+                        <img src="~/Content/icons/firewall-success.png" width="35" id="imgFirewallFail" style="display: none" />
+                        <h4 class="modal-title" id="myModalLabel" style="color: #5cbd2c; font-weight: bold; font-family: system-ui">Xác thực thành công</h4>
+                        <button type="button" class="close" data-dismiss="modal" style="padding: 0px; margin: 0px;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="contentReAuthen" style="overflow: auto; height: 345px">
+                            Đây là thông tin hợp lệ và được xác thực trên nền tảng Blockchain - BigchainDB.
+                            <br />
+                            <br />
+                            Mã giao dịch: <a class="un-style-a-blockchain" style="word-wrap: break-word" href="https://test.ipdb.io/api/v1/transactions/@Model.PosProcess.BigchainDBTransactionId" target="_blank">@Model.PosProcess.BigchainDBTransactionId</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="/assets/theme/img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>@Model.Name</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/">Trang chủ</a>
+                            <a href="/danh-muc/@Model.GuidCategory.ToString()">@Model.PosCategory.Name</a>
+                            <span>@Model.Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    @if (Model.ListGallery != null && Model.ListGallery.Any())
+                    {
+                        <div class="product__details__pic">
+                            <div class="product__details__pic__item">
+                                <img class="product__details__pic__item--large"
+                                     src="@Model.ListGallery[0].Image" alt="" height="270" width="555">
+                            </div>
+                            <div class="product__details__pic__slider owl-carousel">
+                                @for (var i = 0; i < Model.ListGallery.Count; i++)
+                                {
+                                    <img data-imgbigurl="@Model.ListGallery[i].Image"
+                                         src="@Model.ListGallery[i].Image" alt="">
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <span style="height: 40px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden; font-weight: 700; font-size: 30px;">@Model.Name</span>
+                        <div class="product__details__price" style="font-size: 20px">@String.Format("{0:n0}", Model.Price) @Model.Unit</div>
+                        @if (Model.PosProcess != null)
+                        {
+                            if (Model.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.Untested || Model.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.Reject || Model.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.Changed)
+                            {
+                                <a href="#" class="primary-btn" style="padding: 5px 25px 5px; border-radius: 30px; background: red; font-family: system-ui; max-width: 83%;">@Model.PosProcessStatusName</a>
+                            }
+
+                            if (Model.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.Tested || Model.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.UploadedBigchainDB)
+                            {
+                                <a href="#" class="primary-btn" style="padding: 5px 25px 5px; border-radius: 30px; background: #5cbd2c; font-family: system-ui; max-width: 83%;">@Model.PosProcessStatusName</a>
+                                if (Model.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.UploadedBigchainDB)
+                                {
+                                    <a class="a-hover" title="Xác thực lại" onclick="reAuthenBigchainDB();"><i class="fa fa-refresh"></i></a>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <a href="#" class="primary-btn" style="padding: 5px 25px 5px; border-radius: 30px; background: red; font-family: system-ui;">@Model.PosProcessStatusName</a>
+                        }
+                        <p style="height: 53px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;">
+                            @Html.Raw(HttpUtility.HtmlDecode(Model.Note))
+                        </p>
+                        <ul style="padding-top: 30px; margin-top: 30px;">
+                            <li><b>Mã sản phẩm:</b> <span>@Model.Code</span></li>
+                            <li>
+                                <b>Loại sản phẩm:</b> @if (Model.PosCategory != null)
+                                {<span>@Model.PosCategory.Name</span>}
+                            </li>
+                            <li>
+                                <b>Lô sản phẩm:</b> @if (Model.PosBatch != null)
+                                {<span>@Model.PosBatch.Name</span>}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                   aria-selected="true">Nhà cung cấp</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                   aria-selected="true">Nhà vận chuyển</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                   aria-selected="true">Nhà phân phối</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab"
+                                   aria-selected="true">Nhật ký</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    @if (Model.ManufacturingBy != null)
+                                    {
+                                        <h3 style="font-weight: 700; margin-bottom: 30px">@Model.ManufacturingBy.Username</h3>
+                                        <h5 style="font-weight: 700; margin-bottom: 10px">Mô tả</h5>
+                                        <p style="margin-bottom: 30px">
+                                            @Html.Raw(HttpUtility.HtmlDecode(Model.ManufacturingBy.Note))
+                                        </p>
+                                        <h5 style="font-weight: 700; margin-bottom: 10px">Thông tin liên hệ</h5>
+                                        <p>
+                                            <b><i class="fa fa-envelope" style="width: 25px"></i> Email:</b> @Model.ManufacturingBy.Email
+                                        </p>
+                                        <p>
+                                            <b><i class="fa fa-phone" style="width: 25px"></i> Mobile:</b> @Model.ManufacturingBy.Mobile
+                                        </p>
+                                        if (!string.IsNullOrWhiteSpace(Model.ManufacturingBy.FullAddress))
+                                        {
+                                            <p>
+                                                <b><i class="fa fa-map-marker" style="width: 25px"></i> Địa chỉ:</b> @Model.ManufacturingBy.FullAddress
+                                            </p>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    @if (Model.TransportBy != null)
+                                    {
+                                        <h3 style="font-weight: 700; margin-bottom: 30px">@Model.TransportBy.Username</h3>
+                                        <h5 style="font-weight: 700; margin-bottom: 10px">Mô tả</h5>
+                                        <p style="margin-bottom: 30px">
+                                            @Html.Raw(HttpUtility.HtmlDecode(Model.TransportBy.Note))
+                                        </p>
+                                        <h5 style="font-weight: 700; margin-bottom: 10px">Thông tin liên hệ</h5>
+                                        <p>
+                                            <b><i class="fa fa-envelope" style="width: 25px"></i> Email:</b> @Model.TransportBy.Email
+                                        </p>
+                                        <p>
+                                            <b><i class="fa fa-phone" style="width: 25px"></i> Mobile:</b> @Model.TransportBy.Mobile
+                                        </p>
+                                        if (!string.IsNullOrWhiteSpace(Model.TransportBy.FullAddress))
+                                        {
+                                            <p>
+                                                <b><i class="fa fa-map-marker" style="width: 25px"></i> Địa chỉ:</b> @Model.TransportBy.FullAddress
+                                            </p>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    @if (Model.DistributeBy != null)
+                                    {
+                                        <h3 style="font-weight: 700; margin-bottom: 30px">@Model.DistributeBy.Username</h3>
+                                        <h5 style="font-weight: 700; margin-bottom: 10px">Mô tả</h5>
+                                        <p style="margin-bottom: 30px">
+                                            @Html.Raw(HttpUtility.HtmlDecode(Model.DistributeBy.Note))
+                                        </p>
+                                        <h5 style="font-weight: 700; margin-bottom: 10px">Thông tin liên hệ</h5>
+                                        <p>
+                                            <b><i class="fa fa-envelope" style="width: 25px"></i> Email:</b> @Model.DistributeBy.Email
+                                        </p>
+                                        <p>
+                                            <b><i class="fa fa-phone" style="width: 25px"></i> Mobile:</b> @Model.DistributeBy.Mobile
+                                        </p>
+                                        if (!string.IsNullOrWhiteSpace(Model.DistributeBy.FullAddress))
+                                        {
+                                            <p>
+                                                <b><i class="fa fa-map-marker" style="width: 25px"></i> Địa chỉ:</b> @Model.DistributeBy.FullAddress
+                                            </p>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-4" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h3 style="font-weight: 700; margin-bottom: 30px">Lịch sử</h3>
+                                    @if (Model.PosProcess != null)
+                                    {<p>@Html.Raw(HttpUtility.HtmlDecode(Model.PosProcess.History))</p>}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+    <!-- Footer Section Begin -->
+    <footer class="footer" style="border-top-color: #0591c7; background-color: #f3f2f2; color: #ccc;">
+        <div class="container" style="padding: 30px 0px; text-align: center;">
+            <a href="/" style="text-transform: uppercase; font-size: 1.5em; font-weight: 900;" class="title-footer">KTechMA</a>
+            <div class="footer-info col-md-12 text-center" style="margin-top: 15px">
+                <ul style="padding: 0px; margin: 0px; list-style: none;">
+                    <li style="list-style: none; display: inline-block; margin: 0; padding: 0;"><a href="#" style="font-family: 'Roboto Slab', sans-serif; font-size: 13px; color: #686868; margin: 0 20px;">Đơn vị phân phối giải pháp KTechMA</a></li>
+                    <li style="list-style: none; display: inline-block; margin: 0; padding: 0;"><a href="#" style="font-family: 'Roboto Slab', sans-serif; font-size: 13px; color: #686868; margin: 0 20px;">0983 279 347</a></li>
+                    <li style="list-style: none; display: inline-block; margin: 0; padding: 0;"><a href="#" style="font-family: 'Roboto Slab', sans-serif; font-size: 13px; color: #686868; margin: 0 20px;">info@KTechMA.net</a></li>
+                </ul>
+            </div>
+            <div class="footer-social-icons col-md-12 text-center">
+                <ul style="padding: 0px; margin: 0px; list-style: none;">
+                    <li style="list-style: none; display: inline-block; margin: 0; padding: 0;"><a href="#" style="width: 36px; height: 36px; display: inline-block; text-align: center; line-height: 36px; color: #aaa; border: 1px solid #8c8a8a; border-radius: 50%; margin: 30px 3px 0px 3px; font-size: 13px; text-decoration: none;"><i class="fa fa-twitter"></i></a></li>
+                    <li style="list-style: none; display: inline-block; margin: 0; padding: 0;"><a href="#" style="width: 36px; height: 36px; display: inline-block; text-align: center; line-height: 36px; color: #aaa; border: 1px solid #8c8a8a; border-radius: 50%; margin: 30px 3px 0px 3px; font-size: 13px; text-decoration: none;"><i class="fa fa-facebook"></i></a></li>
+                    <li style="list-style: none; display: inline-block; margin: 0; padding: 0;"><a href="#" style="width: 36px; height: 36px; display: inline-block; text-align: center; line-height: 36px; color: #aaa; border: 1px solid #8c8a8a; border-radius: 50%; margin: 30px 3px 0px 3px; font-size: 13px; text-decoration: none;"><i class="fa fa-linkedin"></i></a></li>
+                    <li style="list-style: none; display: inline-block; margin: 0; padding: 0;"><a href="#" style="width: 36px; height: 36px; display: inline-block; text-align: center; line-height: 36px; color: #aaa; border: 1px solid #8c8a8a; border-radius: 50%; margin: 30px 3px 0px 3px; font-size: 13px; text-decoration: none;"><i class="fa fa-google-plus"></i></a></li>
+                    <li style="list-style: none; display: inline-block; margin: 0; padding: 0;"><a href="#" style="width: 36px; height: 36px; display: inline-block; text-align: center; line-height: 36px; color: #aaa; border: 1px solid #8c8a8a; border-radius: 50%; margin: 30px 3px 0px 3px; font-size: 13px; text-decoration: none;"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <section class="sub-footer" style="padding: 20px 0px !important; background-color: #ededed !important;">
+        <div class="container">
+            <div class="copyright-text col-md-6 col-sm-6 col-xs-12" style="float: left">
+                <p style="padding: 0px; margin: 0px; font-family: 'Roboto Condensed', sans-serif; font-size: 9px; text-transform: uppercase; color: #aaa;">© 2022 KTechMA. All rights reserved.</p>
+            </div>
+            <div class="designed-by col-md-6 col-sm-6 col-xs-12" style="float: right">
+                <p style="float: right; padding: 0px; margin: 0px; font-family: 'Roboto Condensed', sans-serif; font-size: 9px; text-transform: uppercase; color: #aaa;"><a href="/" style="text-decoration: none;" class="a-footer">Powered and jointly built by KTechMA.</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section End -->
+    <!-- Js Plugins -->
+    <script src="~/assets/theme/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/theme/js/bootstrap.min.js"></script>
+    <script src="~/assets/theme/js/jquery.nice-select.min.js"></script>
+    <script src="~/assets/theme/js/jquery-ui.min.js"></script>
+    <script src="~/assets/theme/js/jquery.slicknav.js"></script>
+    <script src="~/assets/theme/js/mixitup.min.js"></script>
+    <script src="~/assets/theme/js/owl.carousel.min.js"></script>
+    <script src="~/assets/theme/js/main.js"></script>
+    <script>
+        var currentUrl = location.pathname;
+        var menus = $('#menu > li > a[href="' + currentUrl + '"]');
+        if (menus && menus.length > 0) {
+            var li = menus[0].parentNode;
+            li.classList.add("active");
+        }
+
+        const firstContenReAuthenHtml = $('#contentReAuthen').html();
+        function reAuthenBigchainDB() {
+            $("#preloder").fadeIn();
+            $(".loader").delay(200).fadeIn("slow");
+            var guidPosProcess = '@Model.PosProcess.Guid';
+
+            $.post('@Url.Action("ReAuthenBigchainDB", "PosProcess")', { guid: guidPosProcess, transId: '@Model.PosProcess.BigchainDBTransactionId' },
+                function (dataResponse) {
+                    $(".loader").fadeOut();
+                    $("#preloder").delay(200).fadeOut("slow");
+
+                    if (dataResponse.StatusCode == 200) {
+                        $('#imgFirewallSuccess').show();
+                        $('#imgFirewallFail').hide();
+
+                        $('#myModalLabel').text('Xác thực thất bại');
+                        $('#myModalLabel').removeClass('text-red');
+
+                        $('#contentReAuthen').html(firstContenReAuthenHtml);
+
+                        setTimeout(function () {
+                            $("#popup").modal();
+                        }, 200);
+                    } else {
+                        $('#imgFirewallSuccess').hide();
+                        $('#imgFirewallFail').show();
+
+                        $('#myModalLabel').text('Xác thực thất bại');
+                        $('#myModalLabel').addClass('text-red');
+
+                        $('#contentReAuthen').html(dataResponse.MessagError);
+
+                        setTimeout(function () {
+                            $("#popup").modal();
+                        }, 200);
+                    }
+            })
+        }
+    </script>
+</body>
+</html>

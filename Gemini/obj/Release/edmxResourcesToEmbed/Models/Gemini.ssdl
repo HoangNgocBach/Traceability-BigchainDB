@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Gemini.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CrmEmailSetting">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PassEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Smtp" Type="nvarchar" MaxLength="255" />
+    <Property Name="Port" Type="int" Nullable="false" />
+    <Property Name="IsHtml" Type="bit" Nullable="false" />
+    <Property Name="EnableSsl" Type="bit" Nullable="false" />
+    <Property Name="DelayTime" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CrmEmailTemplate">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="SubjectEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ContentTemplate" Type="ntext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FControlMenu">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GuidControl" Type="uniqueidentifier" />
+    <Property Name="GuidMenu" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="FProduceGallery">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="GuidProduce" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GuidGallery" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="FRoleControlMenu">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GuidRole" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GuidControl" Type="uniqueidentifier" />
+    <Property Name="GuidMenu" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="PosBatch">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="ManufacturingAt" Type="datetime" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PosCategory">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="ParentGuid" Type="uniqueidentifier" />
+    <Property Name="OrderBy" Type="int" />
+    <Property Name="SeoFriendUrl" Type="nvarchar" MaxLength="255" />
+    <Property Name="SeoTitle" Type="nvarchar" MaxLength="255" />
+    <Property Name="SeoDescription" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PosProcess">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GuidProduce" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ManufacturingBy" Type="uniqueidentifier" />
+    <Property Name="ManufacturingStartAt" Type="datetime" />
+    <Property Name="ManufacturingEndAt" Type="datetime" />
+    <Property Name="History" Type="nvarchar(max)" />
+    <Property Name="TransportBy" Type="uniqueidentifier" />
+    <Property Name="TransportStartAt" Type="datetime" />
+    <Property Name="TransportEndAt" Type="datetime" />
+    <Property Name="DistributeBy" Type="uniqueidentifier" />
+    <Property Name="DistributeStartAt" Type="datetime" />
+    <Property Name="DistributeEndAt" Type="datetime" />
+    <Property Name="Signature" Type="nvarchar(max)" />
+    <Property Name="SignAt" Type="datetime" />
+    <Property Name="PublicKey" Type="nvarchar(max)" />
+    <Property Name="ManufacturingStatus" Type="int" />
+    <Property Name="TransportStatus" Type="int" />
+    <Property Name="DistributeStatus" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="BigchainDBTransactionId" Type="nvarchar(max)" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PosProduce">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="255" />
+    <Property Name="GuidBatch" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GuidCategory" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SeoTitle" Type="nvarchar" MaxLength="255" />
+    <Property Name="SeoDescription" Type="nvarchar" MaxLength="255" />
+    <Property Name="SeoFriendUrl" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="SControl">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="SpriteCssClass" Type="nvarchar" MaxLength="255" />
+    <Property Name="EventClick" Type="nvarchar" MaxLength="255" />
+    <Property Name="Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Orderby" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SLanguage">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SMenu">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="GuidLanguage" Type="uniqueidentifier" />
+    <Property Name="OrderMenu" Type="int" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="255" />
+    <Property Name="GuidParent" Type="uniqueidentifier" />
+    <Property Name="Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="LinkUrl" Type="nvarchar" MaxLength="255" />
+    <Property Name="FriendUrl" Type="nvarchar" MaxLength="255" />
+    <Property Name="RouterUrl" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SRegion">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ParentGuid" Type="uniqueidentifier" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="25" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SReplaceCode">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ReplaceCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ReplaceText" Type="ntext" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SRole">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="IsManufacturing" Type="bit" />
+    <Property Name="IsTransport" Type="bit" />
+    <Property Name="IsDistribute" Type="bit" />
+    <Property Name="IsAccreditation" Type="bit" />
+  </EntityType>
+  <EntityType Name="SType">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="KeyType" Type="nvarchar" MaxLength="255" />
+    <Property Name="ValueType" Type="nvarchar" MaxLength="255" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUser">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Notification" Type="bit" Nullable="false" />
+    <Property Name="GuidRole" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Skype" Type="nvarchar" MaxLength="255" />
+    <Property Name="Position" Type="nvarchar" MaxLength="255" />
+    <Property Name="Avartar" Type="nvarchar" MaxLength="255" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="RecordsInPage" Type="int" />
+    <Property Name="Zalo" Type="nvarchar" MaxLength="255" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullAddress" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UGallery">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Link" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Image" Type="nvarchar" MaxLength="2000" />
+    <Property Name="GuidGroup" Type="uniqueidentifier" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="UGroup">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="SeoTitle" Type="nvarchar" MaxLength="255" />
+    <Property Name="SeoDescription" Type="nvarchar" MaxLength="255" />
+    <Property Name="SeoImage" Type="nvarchar" MaxLength="255" />
+    <Property Name="SeoFriendUrl" Type="nvarchar" MaxLength="255" />
+    <Property Name="CountView" Type="int" />
+    <Property Name="ParentGuid" Type="uniqueidentifier" />
+    <Property Name="LanguageGuid" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="WUsAbout">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PosProcess_PosProduce">
+    <End Role="PosProduce" Type="Self.PosProduce" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PosProcess" Type="Self.PosProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosProduce">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PosProcess">
+        <PropertyRef Name="GuidProduce" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosProcess_SUser_ManufacturingBy">
+    <End Role="SUser" Type="Self.SUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PosProcess" Type="Self.PosProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUser">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PosProcess">
+        <PropertyRef Name="ManufacturingBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosProduce_PosBatch">
+    <End Role="PosBatch" Type="Self.PosBatch" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PosProduce" Type="Self.PosProduce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosBatch">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PosProduce">
+        <PropertyRef Name="GuidBatch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosProduce_PosCategory">
+    <End Role="PosCategory" Type="Self.PosCategory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PosProduce" Type="Self.PosProduce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosCategory">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PosProduce">
+        <PropertyRef Name="GuidCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUser_SRole">
+    <End Role="SRole" Type="Self.SRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SUser" Type="Self.SUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SRole">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="SUser">
+        <PropertyRef Name="GuidRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="fnSplit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sInputList" Type="varchar" Mode="In" />
+    <Parameter Name="sDelimiter" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="item" Type="varchar" MaxLength="8000" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="GeminiStoreContainer">
+    <EntitySet Name="CrmEmailSetting" EntityType="Self.CrmEmailSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CrmEmailTemplate" EntityType="Self.CrmEmailTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FControlMenu" EntityType="Self.FControlMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FProduceGallery" EntityType="Self.FProduceGallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FRoleControlMenu" EntityType="Self.FRoleControlMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosBatch" EntityType="Self.PosBatch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosCategory" EntityType="Self.PosCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosProcess" EntityType="Self.PosProcess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PosProduce" EntityType="Self.PosProduce" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SControl" EntityType="Self.SControl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SLanguage" EntityType="Self.SLanguage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMenu" EntityType="Self.SMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SRegion" EntityType="Self.SRegion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SReplaceCode" EntityType="Self.SReplaceCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SRole" EntityType="Self.SRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SType" EntityType="Self.SType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUser" EntityType="Self.SUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UGallery" EntityType="Self.UGallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UGroup" EntityType="Self.UGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WUsAbout" EntityType="Self.WUsAbout" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PosProcess_PosProduce" Association="Self.FK_PosProcess_PosProduce">
+      <End Role="PosProduce" EntitySet="PosProduce" />
+      <End Role="PosProcess" EntitySet="PosProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosProcess_SUser_ManufacturingBy" Association="Self.FK_PosProcess_SUser_ManufacturingBy">
+      <End Role="SUser" EntitySet="SUser" />
+      <End Role="PosProcess" EntitySet="PosProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosProduce_PosBatch" Association="Self.FK_PosProduce_PosBatch">
+      <End Role="PosBatch" EntitySet="PosBatch" />
+      <End Role="PosProduce" EntitySet="PosProduce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosProduce_PosCategory" Association="Self.FK_PosProduce_PosCategory">
+      <End Role="PosCategory" EntitySet="PosCategory" />
+      <End Role="PosProduce" EntitySet="PosProduce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUser_SRole" Association="Self.FK_SUser_SRole">
+      <End Role="SRole" EntitySet="SRole" />
+      <End Role="SUser" EntitySet="SUser" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

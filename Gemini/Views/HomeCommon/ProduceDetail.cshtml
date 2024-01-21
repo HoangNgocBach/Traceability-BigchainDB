@@ -1,0 +1,147 @@
+﻿@model Gemini.Models._20_Web.ProduceDetailModel
+@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+
+<style>
+    .QR_Code_Item > img {
+        margin: auto;
+    }
+
+    .nav-tabs > .nav-item > .active {
+        border-bottom: 1px solid;
+    }
+</style>
+
+@if (Model != null && Model.PosProduce != null)
+{
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="/assets/theme/img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>@Model.PosProduce.Name</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/">Trang chủ</a>
+                            <a href="/danh-muc/@Model.PosProduce.GuidCategory.ToString()">@Model.PosProduce.NameCategory</a>
+                            <span>@Model.PosProduce.Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    @if (Model.PosProduce.ListGallery != null && Model.PosProduce.ListGallery.Any())
+                    {
+                        <div class="product__details__pic">
+                            <div class="product__details__pic__item">
+                                <img class="product__details__pic__item--large"
+                                     src="@Model.PosProduce.ListGallery[0].Image" alt="" height="270" width="555">
+                            </div>
+                            <div class="product__details__pic__slider owl-carousel">
+                                @for (var i = 0; i < Model.PosProduce.ListGallery.Count; i++)
+                                {
+                                    <img data-imgbigurl="@Model.PosProduce.ListGallery[i].Image"
+                                         src="@Model.PosProduce.ListGallery[i].Image" alt="">
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 style="margin-bottom: 10px">
+                                    <span style="height: 36px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden;">@Model.PosProduce.Name</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="product__details__price" style="font-size: 20px">@String.Format("{0:n0}", Model.PosProduce.Price) @Model.PosProduce.Unit</div>
+                        @if (Model.PosProduce.PosProcess != null)
+                        {
+                            if (Model.PosProduce.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.Untested || Model.PosProduce.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.Reject || Model.PosProduce.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.Changed)
+                            {
+                                <a href="#" class="primary-btn" style="padding: 5px 25px 5px; border-radius: 30px; background: red; font-family: system-ui; max-width: 90%;">@Model.PosProduce.PosProcessStatusName</a>
+                            }
+
+                            if (Model.PosProduce.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.Tested || Model.PosProduce.PosProcess.Status == Gemini.Controllers.Bussiness.PosProcess_Status.UploadedBigchainDB)
+                            {
+                                <a href="#" class="primary-btn" style="padding: 5px 25px 5px; border-radius: 30px; background: #5cbd2c; font-family: system-ui; max-width: 90%;">@Model.PosProduce.PosProcessStatusName</a>
+                            }
+                        }
+                        else
+                        {
+                            <a href="#" class="primary-btn" style="padding: 5px 25px 5px; border-radius: 30px; background: red; font-family: system-ui; max-width: 90%;">@Model.PosProduce.PosProcessStatusName</a>
+                        }
+                        <p style="height: 53px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;">
+                            @Html.Raw(HttpUtility.HtmlDecode(Model.PosProduce.Note))
+                        </p>
+                        <ul style="padding-top: 30px; margin-top: 30px;">
+                            <li><b>Mã sản phẩm:</b> <span>@Model.PosProduce.Code</span></li>
+                            <li>
+                                <b>Loại sản phẩm:</b> @if (Model.PosProduce.PosCategory != null)
+                                {<span>@Model.PosProduce.PosCategory.Name</span>}
+                            </li>
+                            <li>
+                                <b>Lô sản phẩm:</b> @if (Model.PosProduce.PosBatch != null)
+                                {<span>@Model.PosProduce.PosBatch.Name</span>}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                   aria-selected="true">Mô tả</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                   aria-selected="true">QR Code</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    @Html.Raw(HttpUtility.HtmlDecode(Model.PosProduce.Description))
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <div id="QR_Code_@Model.PosProduce.Guid" class="QR_Code_Item"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+
+    <script type="text/javascript" src="~/assets/admin/js/qrcode.js"></script>
+    <script>
+        localStorage['activeMenu'] = "/danh-muc";
+        activeMenu();
+
+        var valqr = window.location.origin + "/admin/PosProduce/Display/@Model.PosProduce.Guid";
+        var qrcode = new QRCode("QR_Code_@Model.PosProduce.Guid", {
+            text: valqr,
+            width: 200,
+            height: 200,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+}

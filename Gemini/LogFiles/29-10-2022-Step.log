@@ -1,0 +1,14 @@
+2022-10-29 00:44:39,905: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-29 00:44:39,952: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-29 00:46:05,918: [DEBUG] AdminController-Register: Ðang ký thành công User: user12
+2022-10-29 00:46:42,284: [DEBUG] Send email Success
+2022-10-29 00:47:40,609: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-29 00:47:40,623: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-29 00:48:14,324: [DEBUG] AdminController-Register: Ðang ký thành công User: user12
+2022-10-29 00:48:14,337: [DEBUG] Send email Success
+2022-10-29 00:48:32,621: [DEBUG] [ActiveAccount] user12|duongtq6797@gmail.com
+2022-10-29 00:48:32,631: [DEBUG] Active account user12|duongtq6797@gmail.comThành công
+2022-10-29 00:48:38,536: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-29 00:48:38,551: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-29 11:27:48,416: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-29 11:27:48,509: [DEBUG] AdminController-Login: Ðang nh?p thành công

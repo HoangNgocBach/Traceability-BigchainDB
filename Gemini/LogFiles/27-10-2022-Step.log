@@ -1,0 +1,83 @@
+2022-10-27 00:05:40,088: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-10-27 00:05:40,120: [DEBUG] System.ArgumentException: AmountSale The AmountSale field is required. ---> System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 57
+   --- End of inner exception stack trace ---
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 73
+   at Gemini.Controllers._03_Pos.PosProduceController.Update(PosProduceModel viewModel) in C:\ProjectOS\Corework\Gemini\Controllers\03_Pos\PosProduceController.cs:line 240
+2022-10-27 00:08:03,161: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-10-27 00:08:03,179: [DEBUG] System.ArgumentException: AmountSale The AmountSale field is required. ---> System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 57
+   --- End of inner exception stack trace ---
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 73
+   at Gemini.Controllers._03_Pos.PosProduceController.Update(PosProduceModel viewModel) in C:\ProjectOS\Corework\Gemini\Controllers\03_Pos\PosProduceController.cs:line 240
+2022-10-27 00:08:37,175: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-10-27 00:08:43,971: [DEBUG] System.ArgumentException: AmountSale The AmountSale field is required. ---> System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 57
+   --- End of inner exception stack trace ---
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 73
+   at Gemini.Controllers._03_Pos.PosProduceController.Update(PosProduceModel viewModel) in C:\ProjectOS\Corework\Gemini\Controllers\03_Pos\PosProduceController.cs:line 240
+2022-10-27 00:11:06,531: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-10-27 00:11:06,541: [DEBUG] System.ArgumentException: AmountSale The AmountSale field is required. ---> System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 57
+   --- End of inner exception stack trace ---
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 73
+   at Gemini.Controllers._03_Pos.PosProduceController.Update(PosProduceModel viewModel) in C:\ProjectOS\Corework\Gemini\Controllers\03_Pos\PosProduceController.cs:line 240
+2022-10-27 00:11:20,708: [DEBUG] System.Data.Entity.Validation.DbValidationError
+2022-10-27 00:11:24,937: [DEBUG] System.ArgumentException: AmountSale The AmountSale field is required. ---> System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 57
+   --- End of inner exception stack trace ---
+   at Gemini.Controllers.Bussiness.GeminiController.SaveData(String nameTable) in C:\ProjectOS\Corework\Gemini\Controllers\Bussiness\GeminiController.cs:line 73
+   at Gemini.Controllers._03_Pos.PosProduceController.Update(PosProduceModel viewModel) in C:\ProjectOS\Corework\Gemini\Controllers\03_Pos\PosProduceController.cs:line 240
+2022-10-27 00:58:14,877: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 00:58:14,929: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 00:59:16,576: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 00:59:16,609: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 01:01:04,014: [ERROR] System.InvalidCastException: Unable to cast object of type 'System.Security.Principal.GenericIdentity' to type 'System.Web.Security.FormsIdentity'.
+   at Gemini.Controllers._01_Hethong.AdminController.Index() in C:\ProjectOS\Corework\Gemini\Controllers\01_Hethong\AdminController.cs:line 31
+2022-10-27 01:01:05,970: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 01:01:05,974: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 02:11:38,087: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 02:11:38,127: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 14:49:33,746: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 14:49:33,815: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 15:33:38,630: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 15:33:38,642: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 15:34:15,907: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 15:34:15,909: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-27 15:34:20,369: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 15:34:20,374: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 15:44:54,895: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 15:44:54,927: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-27 15:45:25,356: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 15:45:57,581: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 16:18:28,445: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 16:18:28,517: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 16:26:41,065: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 16:26:41,093: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-27 16:26:47,312: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 16:26:47,320: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-27 16:26:51,934: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 16:26:51,939: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-27 16:26:54,859: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 16:26:54,871: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 17:36:15,670: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 17:36:15,711: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 22:39:16,655: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 22:39:16,704: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 22:39:29,875: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 22:39:29,909: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-27 22:39:46,293: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 22:39:46,299: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-27 22:39:48,525: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 22:39:48,529: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 22:45:47,874: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 22:45:47,878: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 23:31:17,186: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 23:31:17,200: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-27 23:31:38,140: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-27 23:31:38,146: [DEBUG] AdminController-Login: Ðang nh?p thành công

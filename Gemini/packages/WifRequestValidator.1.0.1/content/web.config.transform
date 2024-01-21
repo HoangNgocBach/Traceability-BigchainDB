@@ -1,0 +1,6 @@
+<configuration>
+  <system.web>
+    <httpRuntime requestValidationMode="2.0"
+                 requestValidationType="$rootnamespace$.IdentityModel.ClaimsRequestValidator" />
+  </system.web>
+</configuration>

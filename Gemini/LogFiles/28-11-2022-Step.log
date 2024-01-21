@@ -1,0 +1,12 @@
+2022-11-28 21:03:23,056: [ERROR] ReAuthenBigchainDB: {"message":"Not found","status":404}
+
+2022-11-28 21:03:24,510: [ERROR] ReAuthenBigchainDB: {"message":"Not found","status":404}
+
+2022-11-28 21:03:34,129: [ERROR] ReAuthenBigchainDB: {"message":"Not found","status":404}
+
+2022-11-28 21:04:16,587: [ERROR] ReAuthenBigchainDB: {"message":"Not found","status":404}
+
+2022-11-28 21:43:38,691: [ERROR] System.InvalidCastException: Unable to cast object of type 'System.Security.Principal.GenericIdentity' to type 'System.Web.Security.FormsIdentity'.
+   at Gemini.Controllers._01_Hethong.AdminController.Index() in C:\ProjectOS\Corework\Gemini\Controllers\01_Hethong\AdminController.cs:line 32
+2022-11-28 21:43:43,392: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-28 21:43:43,496: [DEBUG] AdminController-Login: Ðang nh?p thành công

@@ -1,0 +1,527 @@
+﻿@{
+    Layout = "~/Views/Shared/_Root.Head.cshtml";
+}
+
+<!-- [ LOADERs ]
+    ================================================================================================================================--
+    <div class="preloader">
+    <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+    </div>
+    <!-- [ /PRELOADER ]
+    =============================================================================================================================-->
+<!-- [WRAPPER ]
+=============================================================================================================================-->
+<div id="wrapper" class="wrapper">
+    <!-- [NAV]
+    ============================================================================================================================-->
+    <!-- Navigation
+    ==========================================-->
+    <nav class="amd-menu navbar navbar-default navbar-fixed-top theme_background_color fadeInDown">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">KTechMA - Truy xuat nguon goc</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" style="padding-top: 30px;">KTechMA</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/" class="page-scroll">Trang chủ</a></li>
+                    <li><a href="/danh-muc" class="page-scroll">Sản phẩm</a></li>
+                    <li><a href="/ve-chung-toi" class="page-scroll">Về chúng tôi</a></li>
+                    <li><a href="/admin" class="page-scroll" title="@ViewBag.CurrentUsername"> <img src="~/assets/theme/index/img/login-icon.png" width="20"></a></li>
+                    <li><a href="/" class="page-scroll"> <img src="~/assets/theme/index/img/vn-flag.png" width="20"></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!-- [/NAV]
+    ============================================================================================================================-->
+    <!-- [MAIN GALLERY ]
+    =============================================================================================================================-->
+    <section class="main-gallery vegas-container" id="home" style="height: 654px;">
+        <div class="vegas-slide vegas-transition-fade vegas-transition-fade-in vegas-transition-fade-out" style="transition: all 1000ms ease 0s;"><div class="vegas-slide-inner vegas-animation-kenburns" style="background-image: url(&quot;/assets/theme/index/img/bak2.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-position: center center; background-size: cover; animation-duration: 3000ms; "></div></div><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in vegas-transition-fade-out" style="transition: all 1000ms ease 0s;"><div class="vegas-slide-inner vegas-animation-kenburns" style="background-image: url(&quot;/assets/theme/index/img/bak1.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-position: center center; background-size: cover; animation-duration: 3000ms;"></div></div><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in vegas-transition-fade-out" style="transition: all 1000ms ease 0s;"><div class="vegas-slide-inner vegas-animation-kenburns" style="background-image: url(&quot;/assets/theme/index/img/bak4.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-position: center center; background-size: cover; animation-duration: 3000ms;"></div></div><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in vegas-transition-fade-out" style="transition: all 1000ms ease 0s;"><div class="vegas-slide-inner vegas-animation-kenburns" style="background-image: url(&quot;/assets/theme/index/img/bak3.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-position: center center; background-size: cover; animation-duration: 3000ms;"></div></div><div class="vegas-slide vegas-transition-fade vegas-transition-fade-in" style="transition: all 1000ms ease 0s;"><div class="vegas-slide-inner vegas-animation-kenburns" style="background-image: url(&quot;/assets/theme/index/img/bak2.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-position: center center; background-size: cover; animation-duration: 3000ms;"></div></div><div class="vegas-timer vegas-timer-running"><div class="vegas-timer-progress" style="transition-duration: 2900ms;"></div></div><div class="vegas-wrapper" style="overflow: visible; padding: 0px;">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h1 class="text-capitalize bigFont" data-scroll-reveal="wait 0.45s, then enter top and move 80px over 1s" data-scroll-reveal-id="1" style="-webkit-transform: translatey(0);transform: translatey(0);opacity: 1;-webkit-transition: -webkit-transform 1s ease-in-out 0.45s, opacity 1s ease-in-out 0.45s;transition: transform 1s ease-in-out 0.45s, opacity 1s ease-in-out 0.45s;-webkit-perspective: 1000;-webkit-backface-visibility: hidden;" data-scroll-reveal-initialized="true">TRUY XUẤT NGUỒN GỐC</h1><br>
+
+                            <p class="intro" data-scroll-reveal="wait 0.45s, then enter left and move 80px over 1s" data-scroll-reveal-id="2" style="-webkit-transform: translatex(0);transform: translatex(0);opacity: 1;-webkit-transition: -webkit-transform 1s ease-in-out 0.45s, opacity 1s ease-in-out 0.45s;transition: transform 1s ease-in-out 0.45s, opacity 1s ease-in-out 0.45s;-webkit-perspective: 1000;-webkit-backface-visibility: hidden;" data-scroll-reveal-initialized="true">Thu thập đầy đủ thông tin về thực phẩm sử dụng hàng ngày.</p>
+                        </div>
+
+                        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                            <div class="text-center top40">
+                                <a href="/" class="btn btns black-background white fadeInRight">Check Now</a>
+                                <br><br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- [/MAIN GALLERY]
+    =============================================================================================================================-->
+    <!-- [MOBILE APPLICATION]
+    =============================================================================================================================-->
+    <section class="mobile-app theme_background_color" id="feature">
+        <div class="container">
+            <div class="row text-center">
+                <div class="app-heading">
+                    <h2 class="sectionTitle">TÍNH NĂNG CỦA KTechMA</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 featured-content">
+                    <div class="app-icon-box">
+
+                        <div class="app-content-phone text-right">
+                            <h4>Quản lý truy xuất nguồn gốc sản phẩm</h4>
+
+                            <p>
+                                KTechMA là cầu nối uy tín đảm bảo xác thực hàng hóa của nhà cung cấp tới tay người tiêu dùng .
+                            </p>
+                        </div>
+                        <div class="app-icon">
+                            <span class="themecolor text-center"><i class="fa fa-qrcode"></i></span>
+                        </div>
+                    </div>
+                    <div class="app-icon-box">
+
+                        <div class="app-content-phone text-right">
+                            <h4>Thông tin đầy đủ và đa dạng</h4>
+
+                            <p>
+                                Thông tin truy xuất nguồn gốc sản phẩm trở nên sống động hơn và không bị phụ thuộc vào sự hạn chế thông tin trên bao bì.
+                            </p>
+                        </div>
+                        <div class="app-icon">
+                            <span class="themecolor text-center"><i class="fa fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                    <div class="app-icon-box">
+
+                        <div class="app-content-phone text-right">
+                            <h4>Tạo mã ngẫu nhiên</h4>
+
+                            <p>
+                                Các mã KTechMA là các mã hoàn toàn ngẫu nhiên tự sinh theo thuật toán thông minh.
+                            </p>
+                        </div>
+                        <div class="app-icon">
+                            <span class="themecolor text-center"><i class="fa fa-random"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <img src="~/assets/theme/index/img/iphone6-plus.png" class="iphone-image" alt="iPhpone" data-scroll-reveal="wait 0.45s, then enter top and move 80px over 1s" data-scroll-reveal-id="3" style="opacity: 1;" data-scroll-reveal-initialized="true">
+                </div>
+                <div class="col-md-4 col-sm-12 featured-content">
+                    <div class="app-icon-box">
+                        <div class="app-icon">
+                            <span class="themecolor text-center"><i class="fa fa-lock"></i></span>
+                        </div>
+                        <div class="app-content">
+                            <h4>Kiểm soát chất lượng sản phẩm</h4>
+
+                            <p>
+                                Mỗi sản phẩm được cung cấp thông tin kiểm soát chất lượng chặt chẽ từ khâu sản xuất đến tay người dùng.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="app-icon-box">
+                        <div class="app-icon">
+                            <span class="themecolor text-center"><i class="fa fa-gears"></i></span>
+                        </div>
+                        <div class="app-content">
+                            <h4>Xử lý khi có vấn đề phát sinh</h4>
+
+                            <p>
+                                Kiểm tra thông tin đầy đủ hỗ trợ thu hồi và khiếu nại về sản phẩm có phát sinh lỗi.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="app-icon-box">
+                        <div class="app-icon">
+                            <span class="themecolor text-center"><i class="fa fa-search-minus"></i></span>
+                        </div>
+                        <div class="app-content">
+                            <h4>Truy xuất nguồn gốc nội bộ</h4>
+
+                            <p>
+                                Xây dựng riêng phù hợp cho từng quy trình sản phẩm, từng khách hàng cụ thể.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- [/MOBILE APPLICATION]
+    =============================================================================================================================-->
+    <!-- [/WHY YOU LOVE]
+    =============================================================================================================================-->
+    <section class="why-love theme_background_color" id="whylove" style="padding-bottom: 50px;">
+        @*<div class="overlay">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="WhyLove-heading text-center">
+
+                        <h2 class="sectionTitle" style="padding-bottom: 30px;">TẠI SAO CHỌN KTechMA</h2>
+                        <p style="padding-bottom: 30px;">
+                            80% Người tiêu dùng sẵn lòng chi trả với giá thành cao hơn cho sản phẩm được truy xuất nguồn gốc và thông tin xác thực
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="WhyLove-icon-box text-center">
+                            <div class="WhyLove-icon">
+                                <span class="themecolor"><i class="fa fa-lightbulb-o"></i></span>
+                            </div>
+                            <div class="WhyLove-content">
+                                <h4>TĂNG GIÁ TRỊ SẢN PHẨM</h4>
+
+                                <p>Kênh giao tiếp giúp doanh nghiệp chứng minh chất lượng của sản phẩm tương xứng với giá thành bán ra.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="WhyLove-icon-box text-center">
+                            <div class="WhyLove-icon">
+                                <span class="themecolor"><i class="fa fa-binoculars"></i></span>
+                            </div>
+                            <div class="WhyLove-content">
+                                <h4>XÁC THỰC BẰNG BLOCKCHAIN</h4>
+
+                                <p>Công nghệ Blockchain 4.0 đảm bảo thông tin truy xuất không thể bị làm giả thông qua lớp giao thức Web3 phi tập trung.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="WhyLove-icon-box padding-top30 text-center">
+                            <div class="WhyLove-icon">
+                                <span class="themecolor"><i class="fa fa-eye-slash"></i></span>
+                            </div>
+                            <div class="WhyLove-content">
+                                <h4>BẢO VỆ THƯƠNG HIỆU</h4>
+
+                                <p>Giúp người tiêu dùng phân biệt với hàng giả, hàng kém chất lượng, qua đó bảo vệ thương hiệu của sản phẩm.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <div class="container position-relative">
+            <div class="row" style="display: flex">
+                <div class="col-md-6 d-none d-md-block index-img" style="max-width: 50%;">
+                    <div class="position-relative wrap-img-benefit" style="box-sizing: border-box; padding-right: 3rem; position: relative !important;">
+                        <img src="~/assets/theme/index/img/benefit.41586304.jpg" alt="" class="img-benefit" style="max-width: unset; height: auto; float: right; object-fit: cover; border-radius: 15px;">
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center" style="justify-content: center !important; flex-direction: column !important; display: flex !important;">
+                    <div class="title-section" style="position: relative; margin-bottom: 50px;">
+                        <h2 class="react-reveal" style="text-transform: uppercase !important; font-weight: 700; font-size: 26px; line-height: 30px;s">TẠI SAO CẦN PHẢI TRUY XUẤT NGUỒN GỐC VỚI AGRIDENTIAL.VN?</h2>
+                        <p class="react-reveal description pt-2" style="padding-top: 0.5rem !important">80% Người tiêu dùng sẵn lòng chi trả với giá thành cao hơn cho sản phẩm được truy xuất nguồn gốc và thông tin xác thực</p>
+                    </div>
+                    <div class="w-100">
+                        <div class="w-100 my-3 p-3 benefit-item" style="cursor: pointer; transition: all .5s ease; padding: 1rem !important; margin-bottom: 2rem !important; margin-top: 2rem !important; ">
+                            <div class="react-reveal d-flex align-items-center" style="align-items: center !important; display: flex !important;">
+                                <div class="icon d-flex align-items-center justify-content-center" style="width: 4rem; height: 4rem; align-items: center !important; justify-content: center !important; display: flex !important;">
+                                    <div class="icon-benefit d-flex justify-content-center align-items-center" style="color: #fff; height: 40px; width: 40px; background: linear-gradient(77.5deg,#679847 .65%,#086d28 178.45%); border-radius: 50%; align-items: center !important; justify-content: center !important; display: flex !important;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="font-size: 2.25rem; overflow: hidden; vertical-align: middle;">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="text-wrap pl-3" style="padding-left: 2rem !important; white-space: normal !important;">
+                                    <h3 class="font-weight-bold mb-0" style="margin-bottom: 5px; font-size: 1.45em">Tăng giá trị sản phẩm</h3>
+                                    <div class="description" style="font-size: 13px">Kênh giao tiếp giúp doanh nghiệp chứng minh chất lượng của sản phẩm tương xứng với giá thành bán ra</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 my-3 p-3 benefit-item" style="cursor: pointer; transition: all .5s ease; padding: 1rem !important; margin-bottom: 2rem !important; margin-top: 2rem !important; ">
+                            <div class="react-reveal d-flex align-items-center" style="align-items: center !important; display: flex !important;">
+                                <div class="icon d-flex align-items-center justify-content-center" style="width: 4rem; height: 4rem; align-items: center !important; justify-content: center !important; display: flex !important;">
+                                    <div class="icon-benefit d-flex justify-content-center align-items-center" style="color: #fff; height: 40px; width: 40px; background: linear-gradient(77.5deg,#679847 .65%,#086d28 178.45%); border-radius: 50%; align-items: center !important; justify-content: center !important; display: flex !important;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="font-size: 2.25rem; overflow: hidden; vertical-align: middle;">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="text-wrap pl-3" style="padding-left: 2rem !important; white-space: normal !important;">
+                                    <h3 class="font-weight-bold mb-0" style="margin-bottom: 5px; font-size: 1.45em">Bảo vệ thương hiệu</h3>
+                                    <div class="description" style="font-size: 13px">Giúp người tiêu dùng phân biệt với hàng giả, hàng kém chất lượng, qua đó bảo vệ thương hiệu của sản phẩm</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 my-3 p-3 benefit-item" style="cursor: pointer; transition: all .5s ease; padding: 1rem !important; margin-bottom: 2rem !important; margin-top: 2rem !important; ">
+                            <div class="react-reveal d-flex align-items-center" style="align-items: center !important; display: flex !important;">
+                                <div class="icon d-flex align-items-center justify-content-center" style="width: 4rem; height: 4rem; align-items: center !important; justify-content: center !important; display: flex !important;">
+                                    <div class="icon-benefit d-flex justify-content-center align-items-center" style="color: #fff; height: 40px; width: 40px; background: linear-gradient(77.5deg,#679847 .65%,#086d28 178.45%); border-radius: 50%; align-items: center !important; justify-content: center !important; display: flex !important;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="font-size: 2.25rem; overflow: hidden; vertical-align: middle;">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="text-wrap pl-3" style="padding-left: 2rem !important; white-space: normal !important;">
+                                    <h3 class="font-weight-bold mb-0" style="margin-bottom: 5px; font-size: 1.45em">Xác thực bằng Blockchain</h3>
+                                    <div class="description" style="font-size: 13px">Công nghệ Blockchain 4.0 đảm bảo thông tin truy xuất không thể bị làm giả thông qua lớp giao thức Web3 phi tập trung</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- [/WHY YOU WILL LOVE]
+    =============================================================================================================================-->
+    <!-- [HOW WORKS]
+    =============================================================================================================================-->
+    <section class="how-works" id="howwork">
+        <div class="overlay">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="how-it-works-heading">
+                        <h2 class="sectionTitle">KTechMA HOẠT ĐỘNG NHƯ THẾ NÀO</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 app-board">
+                        <div class="app-board-inner">
+                            <ul class="nav nav-tabs liner" id="myTab" role="tablist">
+                                <li class="active">
+                                    <a href="#userexperience" aria-controls="userexperience" role="tab" data-toggle="tab" title="User Experience">
+                                        <span class="round-tabs one">
+                                            <i class="fa fa-print"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" title="Sketch">
+                                        <span class="round-tabs two">
+                                            <i class="fa fa-qrcode"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#prototyping" aria-controls="prototyping" role="tab" data-toggle="tab" title="Prototyping">
+                                        <span class="round-tabs three">
+                                            <i class="fa fa-language"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#uidesign" aria-controls="uidesign" role="tab" data-toggle="tab" title="UI Design">
+                                        <span class="round-tabs four">
+                                            <i class="fa fa-mobile-phone"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#doner" aria-controls="doner" role="tab" data-toggle="tab" title="Development">
+                                        <span class="round-tabs five">
+                                            <i class="fa fa-bar-chart"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="userexperience">
+
+                                <h3 class="head text-center">Tạo mã và in tem</h3>
+
+                                <p class="narrow text-center">
+                                    Từ phần mềm tạo và in ra tem KTechMA theo thuật toán thông minh.
+                                </p>
+
+                                <p class="text-center">
+                                    <a href="#" class="btn btn-success btn-outline-rounded theme_background_color"> Liên hệ <span class="fa fa-send-o"></span></a>
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="profile">
+                                <h3 class="head text-center">Gắn tem KTechMA cho sản phẩm</h3>
+
+                                <p class="narrow text-center">
+                                    Cập nhật thông tin sản phẩm lên hệ thống.
+                                </p>
+
+                                <p class="text-center">
+                                    <a href="#" class="btn btn-success btn-outline-rounded theme_background_color"> Liên hệ <span class="fa fa-send-o"></span></a>
+                                </p>
+
+                            </div>
+                            <div class="tab-pane fade" id="prototyping">
+                                <h3 class="head text-center">Cập nhật thông tin</h3>
+
+                                <p class="narrow text-center">
+                                    Cập nhật thông tin sản phẩm lên hệ thống.
+                                </p>
+
+                                <p class="text-center">
+                                    <a href="#" class="btn btn-success btn-outline-rounded theme_background_color"> Liên hệ <span class="fa fa-send-o"></span></a>
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="uidesign">
+                                <h3 class="head text-center">Tải app</h3>
+
+                                <p class="narrow text-center">
+                                    Người sử dụng tải app về điện thoại và truy xuất thông tin.
+                                </p>
+
+                                <p class="text-center">
+                                    <a href="#" class="btn btn-success btn-outline-rounded theme_background_color"> Liên hệ <span class="fa fa-send-o"></span></a>
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="doner">
+                                <div class="text-center">
+                                    <i class="img-intro icon-checkmark-circle"></i>
+                                </div>
+                                <h3 class="head text-center">Kiểm tra thông tin sản phẩm</h3>
+
+                                <p class="narrow text-center">
+                                    Ngưới sử dụng dùng app hoặc dùng trực tiếp trên web để kiểm tra sản phẩm.
+                                </p>
+
+                                <p class="text-center">
+                                    <a href="#" class="btn btn-success btn-outline-rounded theme_background_color"> Liên hệ <span class="fa fa-send-o"></span></a>
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- [/HOW WORKS]
+    =============================================================================================================================-->
+    <!-- [CURRENT STATS]
+    =============================================================================================================================-->
+    <section class="our-stats" id="stats">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="our-stats-box text-center">
+                        <div class="our-stat-icon">
+                            <span class="fa fa-qrcode"></span>
+                        </div>
+                        <div class="our-stat-info">
+                            <span class="stats" data-from="476390" data-to="1486458" data-speed="5000" data-refresh-interval="50"></span>
+
+                            <h5>Sản phẩm được đăng ký</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="our-stats-box text-center">
+                        <div class="our-stat-icon">
+                            <span class="fa fa-mobile-phone"></span>
+                        </div>
+                        <div class="our-stat-info">
+                            <span class="stats" data-from="1000" data-to="13579" data-speed="5000" data-refresh-interval="50"></span>
+
+                            <h5>Lượt tải Mobile App</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="our-stats-box text-center">
+                        <div class="our-stat-icon">
+                            <span class="fa fa-search"></span>
+                        </div>
+                        <div class="our-stat-info">
+                            <span class="stats" data-from="1" data-to="7359686" data-speed="5000" data-refresh-interval="50"></span>
+
+                            <h5>Lượt check hàng hóa</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="our-stats-box text-center">
+                        <div class="our-stat-icon">
+                            <span class="fa fa-users"></span>
+                        </div>
+                        <div class="our-stat-info">
+                            <span class="stats" data-from="3500" data-to="13564989" data-speed="5000" data-refresh-interval="50"></span>
+
+                            <h5>Khách hàng tương tác</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- [CURRENT STATS]
+    =============================================================================================================================-->
+    <!-- [FOOTER]
+    =============================================================================================================================-->
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <a href="/" style="text-transform: uppercase; font-size: 1.5em; font-weight: 900; color: #007bff;" class="title-footer">KTechMA</a>
+            <div class="footer-info col-md-12 text-center" style="margin-top: 15px">
+                <ul>
+                    <li><a href="#">Đơn vị phân phối giải pháp KTechMA</a></li>
+                    <li><a href="#">0983 279 347</a></li>
+                    <li><a href="#">info@KTechMA.net</a></li>
+                </ul>
+            </div>
+            <div class="footer-social-icons col-md-12 text-center">
+                <ul>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <section class="sub-footer">
+        <div class="container">
+            <div class="copyright-text col-md-6 col-sm-6 col-xs-12">
+                <p>© 2022 KTechMA. All rights reserved.</p>
+            </div>
+            <div class="designed-by col-md-6 col-sm-6 col-xs-12">
+                <p><a href="http://zps.vn>">Powered and jointly built by KTechMA.</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- [/FOOTER]
+    =============================================================================================================================-->
+</div>
+<!-- [ /WRAPPER ]
+=============================================================================================================================-->
+
+<div class="quick-alo-phone quick-alo-green quick-alo-show" id="quick-alo-phoneIcon" style="right: -55px; top: 50%; display: block;">
+    <a href="tel:0983 279 347">
+        <div class="quick-alo-ph-circle">
+        </div>
+        <div class="quick-alo-ph-circle-fill">
+        </div>
+        <div class="quick-alo-ph-img-circle">
+        </div>
+    </a>
+</div>

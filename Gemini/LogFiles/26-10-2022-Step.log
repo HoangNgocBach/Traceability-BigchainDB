@@ -1,0 +1,122 @@
+2022-10-26 02:03:57,886: [ERROR] System.InvalidCastException: Unable to cast object of type 'System.Security.Principal.GenericIdentity' to type 'System.Web.Security.FormsIdentity'.
+   at Gemini.Controllers._01_Hethong.AdminController.Index() in C:\ProjectOS\Corework\Gemini\Controllers\01_Hethong\AdminController.cs:line 33
+2022-10-26 02:05:23,528: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:05:23,544: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:05:24,612: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:05:24,613: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:05:25,411: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:05:25,412: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:05:26,076: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:05:26,077: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:05:26,645: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:05:26,646: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:05:27,763: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:05:27,765: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:05:30,573: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:05:30,574: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:05:31,564: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:05:31,565: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:07:13,841: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:07:47,140: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:08:01,448: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:08:07,033: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:08:09,129: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:08:49,823: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:09:33,521: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:09:33,532: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:09:36,118: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:09:36,119: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:09:41,718: [ERROR] System.InvalidCastException: Unable to cast object of type 'System.Security.Principal.GenericIdentity' to type 'System.Web.Security.FormsIdentity'.
+   at Gemini.Controllers._01_Hethong.AdminController.Index() in C:\ProjectOS\Corework\Gemini\Controllers\01_Hethong\AdminController.cs:line 33
+2022-10-26 02:09:52,088: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:09:56,896: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:11:46,991: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:11:47,009: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:11:48,375: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:11:48,376: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:11:49,351: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:11:49,352: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:11:58,504: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:12:02,785: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:12:04,608: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:12:12,920: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:12:58,503: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:12:58,537: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:13:00,094: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:13:00,095: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:13:01,376: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:13:01,376: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:13:02,377: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:13:02,378: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:13:03,247: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:13:03,247: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:13:04,226: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:13:04,228: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:22:21,309: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:22:21,321: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:22:22,499: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:22:22,500: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:22:36,081: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:23:15,970: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:25:54,259: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:26:31,802: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:27:06,061: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:27:06,359: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:28:01,847: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:28:01,923: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:28:07,549: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:28:12,064: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:31:05,452: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:31:10,017: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:31:21,399: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:31:21,400: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:31:27,146: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:33:02,468: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:35:46,670: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:35:46,707: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:35:47,941: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:35:47,943: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:35:53,320: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:36:00,251: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:36:29,266: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:36:29,269: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:36:30,124: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:36:30,126: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:36:30,708: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:36:30,710: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:38:13,247: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:38:13,260: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:38:14,365: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:38:14,367: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:38:25,846: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:38:34,466: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:49:50,847: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:50:02,622: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:50:05,477: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:50:09,368: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:50:11,806: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:50:11,811: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 02:50:12,564: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 02:50:12,569: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 17:01:00,979: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 17:01:12,657: [DEBUG] AdminController-Login: Ðang nh?p th?t b?i
+2022-10-26 17:01:29,034: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 17:01:45,657: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-26 17:14:58,764: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 17:14:58,828: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-26 17:34:04,710: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 17:34:04,904: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-26 23:19:42,508: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 23:20:11,164: [ERROR] System.InvalidCastException: Unable to cast object of type 'System.Security.Principal.GenericIdentity' to type 'System.Web.Security.FormsIdentity'.
+   at Gemini.Controllers._01_Hethong.AdminController.Index() in C:\ProjectOS\Corework\Gemini\Controllers\01_Hethong\AdminController.cs:line 31
+2022-10-26 23:20:12,831: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 23:21:09,016: [ERROR] System.InvalidCastException: Unable to cast object of type 'System.Security.Principal.GenericIdentity' to type 'System.Web.Security.FormsIdentity'.
+   at Gemini.Controllers._01_Hethong.AdminController.Index() in C:\ProjectOS\Corework\Gemini\Controllers\01_Hethong\AdminController.cs:line 31
+2022-10-26 23:21:18,129: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 23:21:18,273: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-26 23:24:15,455: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 23:24:15,474: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-26 23:24:19,473: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 23:24:19,476: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-10-26 23:42:00,355: [DEBUG] AdminController-Login: Ðang nh?p
+2022-10-26 23:42:00,376: [DEBUG] AdminController-Login: Ðang nh?p thành công

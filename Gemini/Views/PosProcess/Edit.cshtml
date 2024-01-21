@@ -1,0 +1,440 @@
+﻿@model Gemini.Models._03_Pos.PosProcessModel
+@{
+    Layout = "~/Views/Shared/_FormList.cshtml";
+
+    bool isManufacturing = ViewBag.IsManufacturing;
+    bool isTransport = ViewBag.IsTransport;
+    bool isDistribute = ViewBag.IsDistribute;
+}
+
+@Html.Action("AToolbarItem", "Nav")
+
+<div class="k-edit-form-container" style="overflow-x: hidden; ">
+    <form method="post" id="frmEdit" class="form-horizontal" role="form">
+        <div id="Tabs">
+            <ul>
+                <li class="k-state-active">@Html.Label("Sản xuất")</li>
+                <li>@Html.Label("Vận chuyển")</li>
+                <li>@Html.Label("Phân phối")</li>
+            </ul>
+
+            @*Sản xuất*@
+            <div>
+                <div style="height: 0; overflow: hidden">
+                    @Html.HiddenFor(model => model.Guid)
+                    @Html.HiddenFor(model => model.IsUpdate)
+                    @Html.HiddenFor(model => model.Status)
+                    @Html.HiddenFor(model => model.ManufacturingBy)
+                    @Html.HiddenFor(model => model.BigchainDBTransactionId)
+                    <input type="hidden" id="hfLuuvathem" value="0" /><input type="hidden" id="hfExpand" value="0" />
+                    <button type="submit" id="btnLuu" style="visibility: hidden"></button>
+                </div>
+
+                @if (isManufacturing)
+                {
+                    <div id="EditManufacturing">
+                        <div class="form-group">
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.GuidProduce)
+                            </div>
+                            <div class="col-sm-10 col-md-10">
+                                @(Html.Kendo().DropDownListFor(model => model.GuidProduce)
+                              .Name("GuidProduce")
+                              .HtmlAttributes(new { @class = "k-dropdown" })
+                              .HtmlAttributes(new { style = "width:100%;z-index:1;" })
+                              .Filter(FilterType.Contains).OptionLabel(@Gemini.Resources.Resource.LChoose)
+                              .DataTextField("Code")
+                              .DataValueField("Guid")
+                              .DataSource(source => source.Read(read => read.Action("PosProduce", "Combo")))
+                            )
+                                <div>@Html.ValidationMessageFor(model => model.GuidProduce)</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.ManufacturingStartAt)
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                @Html.Kendo().DateTimePickerFor(model => model.ManufacturingStartAt).HtmlAttributes(new { style = "width:100%;" })
+                                <div>@Html.ValidationMessageFor(model => model.ManufacturingStartAt)</div>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.ManufacturingEndAt)
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                @Html.Kendo().DateTimePickerFor(model => model.ManufacturingEndAt).HtmlAttributes(new { style = "width:100%;" })
+                                <div>@Html.ValidationMessageFor(model => model.ManufacturingEndAt)</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.ManufacturingStatus)
+                            </div>
+                            <div class="col-sm-10 col-md-10">
+                                @(Html.Kendo().DropDownListFor(model => model.ManufacturingStatus)
+                              .Name("ManufacturingStatus")
+                              .HtmlAttributes(new { @class = "k-dropdown" })
+                              .HtmlAttributes(new { style = "width:100%;z-index:1;" })
+                              .Filter(FilterType.Contains).OptionLabel(@Gemini.Resources.Resource.LChoose)
+                              .DataTextField("Value")
+                              .DataValueField("Key")
+                              .DataSource(source => source.Read(read => read.Action("ManufacturingStatus", "Combo")))
+                            )
+                                <div>@Html.ValidationMessageFor(model => model.ManufacturingStatus)</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="TransportByDistributeBy">
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.TransportBy)
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                @(Html.Kendo().DropDownListFor(model => model.TransportBy)
+                              .Name("TransportBy")
+                              .HtmlAttributes(new { @class = "k-dropdown" })
+                              .HtmlAttributes(new { style = "width:100%;z-index:1;" })
+                              .Filter(FilterType.Contains).OptionLabel(@Gemini.Resources.Resource.LChoose)
+                              .DataTextField("Username")
+                              .DataValueField("Guid")
+                              .DataSource(source => source.Read(read => read.Action("TransportBy", "Combo")))
+                            )
+                                <div>@Html.ValidationMessageFor(model => model.TransportBy)</div>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.DistributeBy)
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                @(Html.Kendo().DropDownListFor(model => model.DistributeBy)
+                                  .Name("DistributeBy")
+                                  .HtmlAttributes(new { @class = "k-dropdown" })
+                                  .HtmlAttributes(new { style = "width:100%;z-index:1;" })
+                                  .Filter(FilterType.Contains).OptionLabel(@Gemini.Resources.Resource.LChoose)
+                                  .DataTextField("Username")
+                                  .DataValueField("Guid")
+                                  .DataSource(source => source.Read(read => read.Action("DistributeBy", "Combo")))
+                                )
+                                <div>@Html.ValidationMessageFor(model => model.DistributeBy)</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    @Html.HiddenFor(model => model.GuidProduce)
+                    @Html.HiddenFor(model => model.ManufacturingStartAt)
+                    @Html.HiddenFor(model => model.ManufacturingEndAt)
+                    @Html.HiddenFor(model => model.ManufacturingStatus)
+                    @Html.HiddenFor(model => model.TransportBy)
+                    @Html.HiddenFor(model => model.DistributeBy)
+                }
+
+                <div id="DisplayManufacturing">
+                    <div class="form-group">
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.GuidProduce)
+                        </div>
+                        <div class="col-sm-10 col-md-10">
+                            @Html.TextBoxFor(model => model.ProduceName, new { @class = "k-textbox", @readonly = true })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.ManufacturingStartAt)
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            @Html.TextBoxFor(model => model.ManufacturingStartAtString, new { @class = "k-textbox", @Value = Model.ManufacturingStartAtString, @readonly = true })
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.ManufacturingEndAt)
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            @Html.TextBoxFor(model => model.ManufacturingEndAtString, new { @class = "k-textbox", @Value = Model.ManufacturingEndAtString, @readonly = true })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.ManufacturingStatus)
+                        </div>
+                        <div class="col-sm-10 col-md-10">
+                            @Html.TextBoxFor(model => model.ManufacturingStatusName, new { @class = "k-textbox", @readonly = true })
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="TransportByDistributeBy">
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.TransportBy)
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            @Html.TextBoxFor(model => model.TransportByName, new { @class = "k-textbox", @readonly = true })
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.DistributeBy)
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            @Html.TextBoxFor(model => model.DistributeByName, new { @class = "k-textbox", @readonly = true })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*Vận chuyển*@
+            <div>
+                @if (isTransport)
+                {
+                    <div id="EditTransport">
+                        <div class="form-group">
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.TransportStartAt)
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                @Html.Kendo().DateTimePickerFor(model => model.TransportStartAt).HtmlAttributes(new { style = "width:100%;" })
+                                <div>@Html.ValidationMessageFor(model => model.TransportStartAt)</div>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.TransportEndAt)
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                @Html.Kendo().DateTimePickerFor(model => model.TransportEndAt).HtmlAttributes(new { style = "width:100%;" })
+                                <div>@Html.ValidationMessageFor(model => model.TransportEndAt)</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.TransportStatus)
+                            </div>
+                            <div class="col-sm-10 col-md-10">
+                                @(Html.Kendo().DropDownListFor(model => model.TransportStatus)
+                      .Name("TransportStatus")
+                      .HtmlAttributes(new { @class = "k-dropdown" })
+                      .HtmlAttributes(new { style = "width:100%;z-index:1;" })
+                      .Filter(FilterType.Contains).OptionLabel(@Gemini.Resources.Resource.LChoose)
+                      .DataTextField("Value")
+                      .DataValueField("Key")
+                      .DataSource(source => source.Read(read => read.Action("TransportStatus", "Combo")))
+                            )
+                                <div>@Html.ValidationMessageFor(model => model.TransportStatus)</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    @Html.HiddenFor(model => model.TransportStartAt)
+                    @Html.HiddenFor(model => model.TransportEndAt)
+                    @Html.HiddenFor(model => model.TransportStatus)
+                }
+
+                <div id="DisplayTransport">
+                    <div class="form-group">
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.TransportStartAt)
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            @Html.TextBoxFor(model => model.TransportStartAtString, new { @class = "k-textbox", @Value = Model.TransportStartAtString, @readonly = true })
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.TransportEndAt)
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            @Html.TextBoxFor(model => model.TransportEndAtString, new { @class = "k-textbox", @Value = Model.TransportEndAtString, @readonly = true })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.TransportStatus)
+                        </div>
+                        <div class="col-sm-10 col-md-10">
+                            @Html.TextBoxFor(model => model.TransportStatusName, new { @class = "k-textbox", @readonly = true })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*Phân phối*@
+            <div>
+                @if (isDistribute)
+                {
+                    <div id="EditDistribute">
+                        <div class="form-group">
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.DistributeStartAt)
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                @Html.Kendo().DateTimePickerFor(model => model.DistributeStartAt).HtmlAttributes(new { style = "width:100%;" })
+                                <div>@Html.ValidationMessageFor(model => model.DistributeStartAt)</div>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.DistributeEndAt)
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                @Html.Kendo().DateTimePickerFor(model => model.DistributeEndAt).HtmlAttributes(new { style = "width:100%;" })
+                                <div>@Html.ValidationMessageFor(model => model.DistributeEndAt)</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-2 col-md-2">
+                                @Html.LabelFor(m => m.DistributeStatus)
+                            </div>
+                            <div class="col-sm-10 col-md-10">
+                                @(Html.Kendo().DropDownListFor(model => model.DistributeStatus)
+                              .Name("DistributeStatus")
+                              .HtmlAttributes(new { @class = "k-dropdown" })
+                              .HtmlAttributes(new { style = "width:100%;z-index:1;" })
+                              .Filter(FilterType.Contains).OptionLabel(@Gemini.Resources.Resource.LChoose)
+                              .DataTextField("Value")
+                              .DataValueField("Key")
+                              .DataSource(source => source.Read(read => read.Action("DistributeStatus", "Combo")))
+                            )
+                                <div>@Html.ValidationMessageFor(model => model.DistributeStatus)</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    @Html.HiddenFor(model => model.DistributeStartAt)
+                    @Html.HiddenFor(model => model.DistributeEndAt)
+                    @Html.HiddenFor(model => model.DistributeStatus)
+                }
+
+                <div id="DisplayDistribute">
+                    <div class="form-group">
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.DistributeStartAt)
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            @Html.TextBoxFor(model => model.DistributeStartAtString, new { @class = "k-textbox", @Value = Model.DistributeStartAtString, @readonly = true })
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.DistributeEndAt)
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            @Html.TextBoxFor(model => model.DistributeEndAtString, new { @class = "k-textbox", @Value = Model.DistributeEndAtString, @readonly = true })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2 col-md-2">
+                            @Html.LabelFor(m => m.DistributeStatus)
+                        </div>
+                        <div class="col-sm-10 col-md-10">
+                            @Html.TextBoxFor(model => model.DistributeStatusName, new { @class = "k-textbox", @readonly = true })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    ShowHideTransportByDistributeBy();
+    ShowHideEditManufacturing();
+    ShowHideEditTransport();
+    ShowHideEditDistribute();
+
+    function ShowHideTransportByDistributeBy() {
+        if ($('#ManufacturingStatus').val() == 1) {
+            $('#TransportByDistributeBy').show();
+        }
+        else {
+            $('#TransportByDistributeBy').hide();
+        }
+    }
+
+    function ShowHideEditManufacturing() {
+        if (!$('#TransportStatus').val() && '@isManufacturing' == 'True') {
+            $('#EditManufacturing').show();
+            $('#DisplayManufacturing').hide();
+        }
+        else {
+            $('#EditManufacturing').hide();
+            $('#DisplayManufacturing').show();
+        }
+    }
+
+    function ShowHideEditTransport() {
+        if (!$('#DistributeStatus').val() && '@isTransport' == 'True') {
+            $('#EditTransport').show();
+            $('#DisplayTransport').hide();
+        }
+        else {
+            $('#EditTransport').hide();
+            $('#DisplayTransport').show();
+        }
+    }
+
+    function ShowHideEditDistribute() {
+        if ($('#TransportStatus').val() == 1 && '@isDistribute' == 'True' && $('#Status').val() != 1 && $('#Status').val() != 2) {
+            $('#EditDistribute').show();
+            $('#DisplayDistribute').hide();
+        }
+        else {
+            $('#EditDistribute').hide();
+            $('#DisplayDistribute').show();
+        }
+    }
+
+    $('#ManufacturingStatus').on('change', function () {
+        ShowHideTransportByDistributeBy();
+    });
+
+    //Form submit
+    var validator = $("#frmEdit").kendoValidator().data("kendoValidator");
+    $("form").submit(function (event) {
+        if (validator.validate() == true) {
+            kendo.ui.progress(parent.$("#WidgetConfigWindow"), true);
+            var frm = $('#frmEdit');
+            var httpPost = $.post('@Url.Action("Update", "PosProcess")', frm.serialize(), function (dataResponse) {
+                kendo.ui.progress(parent.$("#WidgetConfigWindow"), false);
+                if (dataResponse.StatusCode == 200) {
+                    parent.voidRefresh();
+                    parent.ActiveRow(dataResponse.ActiveCode);
+                    if (parseInt($("#hfLuuvathem").val()) == 0) {
+                        closeWindowEdit();
+                    } else {
+                        parent.Create('0');
+                    }
+                } else {
+                    Notification('@Gemini.Resources.Resource.EditUnsuccessful', dataResponse.StatusCode, dataResponse.MessagError, '@Gemini.Resources.Resource.ListStatusNotificationError', true);
+                }
+
+            }).fail(function (xhr, status, error) {
+                kendo.ui.progress(parent.$("#WidgetConfigWindow"), false);
+                Notification('@Gemini.Resources.Resource.ListUnsuccessful', '@Gemini.Resources.Resource.ListStatus404', error, '@Gemini.Resources.Resource.ListStatusNotificationError', true);
+            });
+        }
+        event.preventDefault();
+    });
+
+
+    function closeWindowEdit() {
+        var window = parent.$("#WidgetConfigWindow").data("kendoWindow");
+        window.close();
+    }
+
+    function voidDeleteItem() {
+        parent.Delete();
+        closeWindowEdit();
+    }
+
+    function voidRefreshItem() {
+        if (parseInt($("#IsUpdate").val()) == 0) {
+            parent.Create('0');
+        } else if (parseInt($("#IsUpdate").val()) == 1) {
+            parent.Edit('1');
+        }
+    }
+    ToolbarItem_Click();
+    //Enter text box
+    PreventEventTextSubmit();
+    //Phím tắt
+    KeyboardNavigationEdit();
+    KendoTabStrip();
+</script>

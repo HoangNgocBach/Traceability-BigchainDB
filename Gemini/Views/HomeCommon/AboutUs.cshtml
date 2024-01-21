@@ -1,0 +1,53 @@
+﻿@model Gemini.Models._20_Web.AboutUsModel
+@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+}
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="/assets/theme/img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    @if (Model.AboutUs != null && Model.AboutUs.Guid != Guid.Empty)
+                    {
+                        <h2>@Model.AboutUs.Name</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/">Trang chủ</a>
+                            <span>@Model.AboutUs.Name</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <h2>Về chúng tôi</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/">Trang chủ</a>
+                            <span>Về chúng tôi</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<section class="blog-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 order-md-1 order-1">
+                <div class="blog__details__text">
+                    @if (Model.AboutUs != null && Model.AboutUs.Guid != Guid.Empty)
+                    {
+                        @Html.Raw(HttpUtility.HtmlDecode(Model.AboutUs.Description))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    localStorage['activeMenu'] = "/ve-chung-toi";
+    activeMenu();
+</script>

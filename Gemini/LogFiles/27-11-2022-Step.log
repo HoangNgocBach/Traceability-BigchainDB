@@ -1,0 +1,32 @@
+2022-11-27 12:25:48,185: [ERROR] System.InvalidCastException: Unable to cast object of type 'System.Security.Principal.GenericIdentity' to type 'System.Web.Security.FormsIdentity'.
+   at Gemini.Controllers._01_Hethong.AdminController.Index() in C:\ProjectOS\Corework\Gemini\Controllers\01_Hethong\AdminController.cs:line 32
+2022-11-27 12:25:50,697: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 12:25:51,681: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 13:09:54,613: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 13:09:54,647: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 13:14:49,782: [ERROR] System.InvalidCastException: Unable to cast object of type 'System.Security.Principal.GenericIdentity' to type 'System.Web.Security.FormsIdentity'.
+   at Gemini.Controllers._01_Hethong.AdminController.Index() in C:\ProjectOS\Corework\Gemini\Controllers\01_Hethong\AdminController.cs:line 32
+2022-11-27 13:14:52,209: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 13:14:52,322: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:31:29,099: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:31:29,129: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:39:56,460: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:39:56,477: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:40:38,482: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:40:38,506: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:41:17,962: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:41:17,982: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:41:28,091: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:41:28,105: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:41:46,220: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:41:46,235: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:42:04,724: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:42:04,739: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:42:19,675: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:42:19,696: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:42:34,500: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:42:34,514: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:42:56,570: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:42:56,584: [DEBUG] AdminController-Login: Ðang nh?p thành công
+2022-11-27 15:51:06,202: [DEBUG] AdminController-Login: Ðang nh?p
+2022-11-27 15:51:06,230: [DEBUG] AdminController-Login: Ðang nh?p thành công

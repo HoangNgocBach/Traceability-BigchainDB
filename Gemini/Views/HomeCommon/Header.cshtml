@@ -1,0 +1,71 @@
+﻿<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Humberger Begin -->
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+        <a href="/" style="text-transform: uppercase; font-size: 1.5em; font-weight: 900;">KTechMA</a>
+    </div>
+    <div class="humberger__menu__widget">
+        <div class="header__top__right__auth">
+            <a href="/admin"><i class="fa fa-user"></i> @ViewBag.CurrentUsername</a>
+        </div>
+    </div>
+    @if (ViewBag.CurrentUsername == "Đăng nhập")
+    {
+        <div class="humberger__menu__widget" style="margin-left: 10px">
+            <div class="header__top__right__auth">
+                <a href="/admin/Admin/Register"><i class="fa fa-registered"></i> Đăng ký</a>
+            </div>
+        </div>
+    }
+    <nav class="humberger__menu__nav mobile-menu">
+        <ul id="menuMobile">
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/danh-muc">Sản phẩm</a></li>
+            <li><a href="/ve-chung-toi">Về chúng tôi</a></li>
+        </ul>
+    </nav>
+    <div id="mobile-menu-wrap"></div>
+    <div class="humberger__menu__widget">
+        <div class="header__top__right__auth">
+            <a href="/" class="page-scroll"> <img src="/assets/theme/index/img/vn-flag.png" width="20"></a>
+        </div>
+    </div>
+    <div class="humberger__menu__contact">
+        <ul>
+            <li><i class="fa fa-envelope"></i> duongtq6797@gmail.com</li>
+        </ul>
+    </div>
+</div>
+<!-- Humberger End -->
+<!-- Header Section Begin -->
+<header class="header" style="background-color: #0591c7;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="header__logo" style="padding: 20px 0">
+                    <a href="/" style="text-transform: uppercase; font-size: 1.5em; font-weight: 900; color: #fff">KTechMA</a>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <nav class="header__menu" style="float: right;">
+                    <ul id="menu">
+                        <li><a href="/" style="color: #fff">Trang chủ</a></li>
+                        <li><a href="/danh-muc" style="color: #fff">Sản phẩm</a></li>
+                        <li><a href="/ve-chung-toi" style="color: #fff">Về chúng tôi</a></li>
+                        <li><a href="/admin" class="page-scroll" title="@ViewBag.CurrentUsername"> <img src="/assets/theme/index/img/login-icon.png" width="20"></a></li>
+                        <li><a href="/" class="page-scroll"> <img src="/assets/theme/index/img/vn-flag.png" width="20"></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars" style="color: white"></i>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->

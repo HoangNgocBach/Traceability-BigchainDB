@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi-VN" lang="vi-VN">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Với mô hình là trung tâm cung cấp thông tin minh bạch về nguồn gốc thực phẩm, hệ thống truy xuất nguồn gốc điện tử KTechMA mang lại nhiều lợi ích vượt trội cho cả doanh nghiệp và người tiêu dùng">
+    <meta name="keywords" content="truy xuất nguồn gốc điện tử">
+    <title>KTechMA - Giải pháp truy xuất nguồn gốc &amp; xác thực thông tin</title>
+
+    <link rel='stylesheet' href='/assets/theme/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/assets/theme/css/elegant-icons.css'>
+    <link rel='stylesheet' href='/assets/theme/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='/assets/theme/css/jquery-ui.min.css'>
+    <link rel='stylesheet' href='/assets/theme/css/nice-select.css'>
+    <link rel='stylesheet' href='/assets/theme/css/owl.carousel.min.css'>
+    <link rel='stylesheet' href='/assets/theme/css/slicknav.min.css'>
+    <link rel='stylesheet' href='/assets/theme/css/style.css'>
+</head>
+<body id="body" class="blog-page blog-post">
+    <script src="~/assets/theme/js/jquery-3.3.1.min.js"></script>
+    <script>
+        var sortBy = "newest";
+        var page = "page-1";
+
+        function activeMenu() {
+            var currentUrl = localStorage['activeMenu'];
+            var menus = $('#menu > li > a[href="' + currentUrl + '"]');
+            if (menus && menus.length > 0) {
+                var li = menus[0].parentNode;
+                li.classList.add("active");
+            }
+
+            var menusMobile = $('#menuMobile > li > a[href="' + currentUrl + '"]');
+            if (menusMobile && menusMobile.length > 0) {
+                var liMobile = menusMobile[0].parentNode;
+                liMobile.classList.add("active");
+            }
+        }
+    </script>
+
+    @Html.Action("Header", "Homecommon")
+    @RenderBody()
+    @Html.Action("Footer", "Homecommon")
+
+    @Scripts.Render("~/bundles/themejs")
+</body>
+</html>

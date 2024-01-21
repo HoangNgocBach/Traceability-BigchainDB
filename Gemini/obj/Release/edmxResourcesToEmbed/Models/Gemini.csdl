@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Gemini" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="GeminiEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Gemini.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Gemini.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="fnSplit" IsComposable="true" ReturnType="Collection(String)">
+      <Parameter Name="sInputList" Mode="In" Type="String" />
+      <Parameter Name="sDelimiter" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="CrmEmailSettings" EntityType="Gemini.CrmEmailSetting" />
+    <EntitySet Name="CrmEmailTemplates" EntityType="Gemini.CrmEmailTemplate" />
+    <EntitySet Name="FControlMenus" EntityType="Gemini.FControlMenu" />
+    <EntitySet Name="FProduceGalleries" EntityType="Gemini.FProduceGallery" />
+    <EntitySet Name="FRoleControlMenus" EntityType="Gemini.FRoleControlMenu" />
+    <EntitySet Name="PosBatches" EntityType="Gemini.PosBatch" />
+    <EntitySet Name="PosCategories" EntityType="Gemini.PosCategory" />
+    <EntitySet Name="PosProcesses" EntityType="Gemini.PosProcess" />
+    <EntitySet Name="PosProduces" EntityType="Gemini.PosProduce" />
+    <EntitySet Name="SControls" EntityType="Gemini.SControl" />
+    <EntitySet Name="SLanguages" EntityType="Gemini.SLanguage" />
+    <EntitySet Name="SMenus" EntityType="Gemini.SMenu" />
+    <EntitySet Name="SRegions" EntityType="Gemini.SRegion" />
+    <EntitySet Name="SReplaceCodes" EntityType="Gemini.SReplaceCode" />
+    <EntitySet Name="SRoles" EntityType="Gemini.SRole" />
+    <EntitySet Name="STypes" EntityType="Gemini.SType" />
+    <EntitySet Name="SUsers" EntityType="Gemini.SUser" />
+    <EntitySet Name="sysdiagrams" EntityType="Gemini.sysdiagram" />
+    <EntitySet Name="UGalleries" EntityType="Gemini.UGallery" />
+    <EntitySet Name="UGroups" EntityType="Gemini.UGroup" />
+    <EntitySet Name="WUsAbouts" EntityType="Gemini.WUsAbout" />
+    <AssociationSet Name="FK_PosProduce_PosBatch" Association="Gemini.FK_PosProduce_PosBatch">
+      <End Role="PosBatch" EntitySet="PosBatches" />
+      <End Role="PosProduce" EntitySet="PosProduces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosProduce_PosCategory" Association="Gemini.FK_PosProduce_PosCategory">
+      <End Role="PosCategory" EntitySet="PosCategories" />
+      <End Role="PosProduce" EntitySet="PosProduces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosProcess_PosProduce" Association="Gemini.FK_PosProcess_PosProduce">
+      <End Role="PosProduce" EntitySet="PosProduces" />
+      <End Role="PosProcess" EntitySet="PosProcesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PosProcess_SUser_ManufacturingBy" Association="Gemini.FK_PosProcess_SUser_ManufacturingBy">
+      <End Role="SUser" EntitySet="SUsers" />
+      <End Role="PosProcess" EntitySet="PosProcesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUser_SRole" Association="Gemini.FK_SUser_SRole">
+      <End Role="SRole" EntitySet="SRoles" />
+      <End Role="SUser" EntitySet="SUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="CrmEmailSetting">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassEmail" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Smtp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Port" Type="Int32" Nullable="false" />
+    <Property Name="IsHtml" Type="Boolean" Nullable="false" />
+    <Property Name="EnableSsl" Type="Boolean" Nullable="false" />
+    <Property Name="DelayTime" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CrmEmailTemplate">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SubjectEmail" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ContentTemplate" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FControlMenu">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="GuidControl" Type="Guid" />
+    <Property Name="GuidMenu" Type="Guid" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FProduceGallery">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GuidProduce" Type="Guid" Nullable="false" />
+    <Property Name="GuidGallery" Type="Guid" />
+  </EntityType>
+  <EntityType Name="FRoleControlMenu">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="GuidRole" Type="Guid" Nullable="false" />
+    <Property Name="GuidControl" Type="Guid" />
+    <Property Name="GuidMenu" Type="Guid" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PosBatch">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturingAt" Type="DateTime" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PosProduces" Relationship="Gemini.FK_PosProduce_PosBatch" FromRole="PosBatch" ToRole="PosProduce" />
+  </EntityType>
+  <EntityType Name="PosCategory">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="ParentGuid" Type="Guid" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="SeoFriendUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SeoTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SeoDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PosProduces" Relationship="Gemini.FK_PosProduce_PosCategory" FromRole="PosCategory" ToRole="PosProduce" />
+  </EntityType>
+  <EntityType Name="PosProcess">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="GuidProduce" Type="Guid" Nullable="false" />
+    <Property Name="ManufacturingBy" Type="Guid" />
+    <Property Name="ManufacturingStartAt" Type="DateTime" Precision="3" />
+    <Property Name="ManufacturingEndAt" Type="DateTime" Precision="3" />
+    <Property Name="History" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TransportBy" Type="Guid" />
+    <Property Name="TransportStartAt" Type="DateTime" Precision="3" />
+    <Property Name="TransportEndAt" Type="DateTime" Precision="3" />
+    <Property Name="DistributeBy" Type="Guid" />
+    <Property Name="DistributeStartAt" Type="DateTime" Precision="3" />
+    <Property Name="DistributeEndAt" Type="DateTime" Precision="3" />
+    <Property Name="Signature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SignAt" Type="DateTime" Precision="3" />
+    <Property Name="PublicKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacturingStatus" Type="Int32" />
+    <Property Name="TransportStatus" Type="Int32" />
+    <Property Name="DistributeStatus" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="BigchainDBTransactionId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PosProduce" Relationship="Gemini.FK_PosProcess_PosProduce" FromRole="PosProcess" ToRole="PosProduce" />
+    <NavigationProperty Name="SUser" Relationship="Gemini.FK_PosProcess_SUser_ManufacturingBy" FromRole="PosProcess" ToRole="SUser" />
+  </EntityType>
+  <EntityType Name="PosProduce">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Unit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GuidBatch" Type="Guid" Nullable="false" />
+    <Property Name="GuidCategory" Type="Guid" Nullable="false" />
+    <Property Name="SeoTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SeoDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SeoFriendUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PosBatch" Relationship="Gemini.FK_PosProduce_PosBatch" FromRole="PosProduce" ToRole="PosBatch" />
+    <NavigationProperty Name="PosCategory" Relationship="Gemini.FK_PosProduce_PosCategory" FromRole="PosProduce" ToRole="PosCategory" />
+    <NavigationProperty Name="PosProcesses" Relationship="Gemini.FK_PosProcess_PosProduce" FromRole="PosProduce" ToRole="PosProcess" />
+  </EntityType>
+  <EntityType Name="SControl">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SpriteCssClass" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EventClick" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Orderby" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SLanguage">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SMenu">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GuidLanguage" Type="Guid" />
+    <Property Name="OrderMenu" Type="Int32" />
+    <Property Name="Icon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GuidParent" Type="Guid" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LinkUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FriendUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RouterUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SRegion">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ParentGuid" Type="Guid" />
+    <Property Name="ZipCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SReplaceCode">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="ReplaceCode" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReplaceText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SRole">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="IsManufacturing" Type="Boolean" />
+    <Property Name="IsTransport" Type="Boolean" />
+    <Property Name="IsDistribute" Type="Boolean" />
+    <Property Name="IsAccreditation" Type="Boolean" />
+    <NavigationProperty Name="SUsers" Relationship="Gemini.FK_SUser_SRole" FromRole="SRole" ToRole="SUser" />
+  </EntityType>
+  <EntityType Name="SType">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="KeyType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ValueType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SUser">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Notification" Type="Boolean" Nullable="false" />
+    <Property Name="GuidRole" Type="Guid" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Skype" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Avartar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="RecordsInPage" Type="Int32" />
+    <Property Name="Zalo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FullAddress" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PosProcesses" Relationship="Gemini.FK_PosProcess_SUser_ManufacturingBy" FromRole="SUser" ToRole="PosProcess" />
+    <NavigationProperty Name="SRole" Relationship="Gemini.FK_SUser_SRole" FromRole="SUser" ToRole="SRole" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UGallery">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="GuidGroup" Type="Guid" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UGroup">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SeoTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SeoDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SeoImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SeoFriendUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CountView" Type="Int32" />
+    <Property Name="ParentGuid" Type="Guid" />
+    <Property Name="LanguageGuid" Type="Guid" />
+  </EntityType>
+  <EntityType Name="WUsAbout">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_PosProduce_PosBatch">
+    <End Type="Gemini.PosBatch" Role="PosBatch" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Gemini.PosProduce" Role="PosProduce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosBatch">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PosProduce">
+        <PropertyRef Name="GuidBatch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosProduce_PosCategory">
+    <End Type="Gemini.PosCategory" Role="PosCategory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Gemini.PosProduce" Role="PosProduce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosCategory">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PosProduce">
+        <PropertyRef Name="GuidCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosProcess_PosProduce">
+    <End Type="Gemini.PosProduce" Role="PosProduce" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Gemini.PosProcess" Role="PosProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PosProduce">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PosProcess">
+        <PropertyRef Name="GuidProduce" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PosProcess_SUser_ManufacturingBy">
+    <End Type="Gemini.SUser" Role="SUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Gemini.PosProcess" Role="PosProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUser">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PosProcess">
+        <PropertyRef Name="ManufacturingBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUser_SRole">
+    <End Type="Gemini.SRole" Role="SRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Gemini.SUser" Role="SUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SRole">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="SUser">
+        <PropertyRef Name="GuidRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

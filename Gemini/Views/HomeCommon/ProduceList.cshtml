@@ -1,0 +1,222 @@
+﻿@model Gemini.Models._20_Web.ProduceListModel
+@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+
+    var totalRecord = (int)ViewData["total"];
+    var pageActive = (int)ViewData["pageActive"];
+
+    const int recordMax = 12;
+    var pageStart = 1;
+    var numberPage = 5;
+    int pageMax = 0;
+    int soTrang;
+
+    if (totalRecord % recordMax == 0)
+    {
+        soTrang = totalRecord / recordMax;
+    }
+    else
+    {
+        soTrang = (totalRecord / recordMax) + 1;
+    }
+
+    if (soTrang < numberPage)
+    {
+        pageMax = soTrang;
+    }
+    else
+    {
+        if (pageActive != 1)
+        {
+            pageStart = pageActive - 1;
+            pageMax = numberPage + pageActive - 2;
+        }
+        else
+        {
+            pageMax = numberPage + pageActive - 1;
+        }
+    }
+
+    if (pageActive != 1)
+    {
+        pageStart = pageActive - 1;
+    }
+}
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="/assets/theme/img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    @if (Model.PosCategory != null && Model.PosCategory.Guid != Guid.Empty)
+                    {
+                        <h2>@Model.PosCategory.Name</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/">Trang chủ</a>
+                            <span>@Model.PosCategory.Name</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <h2>Danh mục</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/">Trang chủ</a>
+                            <span>Danh mục</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Product Section Begin -->
+<section class="product spad" style="padding-top: 0; padding-bottom: 0px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-5 sidebar__cat" style="padding-top: 80px; padding-bottom: 80px; border-right: 1px solid transparent; border-color: #eee;">
+                <div class="sidebar">
+                    <div class="sidebar__item">
+                        <h4>Danh mục</h4>
+                        <ul class="sidebar__category" id="categories">
+                            @if (Model.ListPosCategory != null && Model.ListPosCategory.Any())
+                            {
+                                foreach (var item in Model.ListPosCategory)
+                                {
+                                    <li style="border: 1px solid; padding: 5px; border-radius: 10px; text-align: center; margin-bottom: 5px;"><a href="/danh-muc/@item.Guid.ToString()">@item.Name</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-7 main__cat" style="padding-top: 40px; padding-bottom: 80px; padding-left: 30px;">
+                <div class="filter__item" style="padding-top: 0px; border-bottom: 1px solid #eee; border-top: none; padding-bottom: 10px;">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8" style="text-align: left;">
+                            <div class="filter__sort">
+                                <span>Sắp xếp theo</span>
+                                <select onchange="changeSortBy()" id="sortBy">
+                                    <option value="newest">Mới nhất</option>
+                                    <option value="oldest">Cũ nhất</option>
+                                    <option value="a-z">A - Z</option>
+                                    <option value="z-a">Z - A</option>
+                                    <option value="priceH-L">Giá cao - thấp</option>
+                                    <option value="priceL-H">Giá thấp - cao</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="filter__found" style="float: right">
+                                <h6><span>@totalRecord</span> sản phẩm</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 30px;">
+                    @if (Model.ListPosProduceByCategory != null && Model.ListPosProduceByCategory.Any())
+                    {
+                        foreach (var itemProduce in Model.ListPosProduceByCategory)
+                        {
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <a href="/san-pham/@itemProduce.Guid.ToString()"><div class="product__item__pic set-bg" data-setbg="@itemProduce.LinkImg0" style="border-radius: 7px;"></div></a>
+                                    <div class="product__item__text">
+                                        <h6><a style="height: 39px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; color: #007bff; font-weight: 700" href="/san-pham/@itemProduce.Guid.ToString()">@itemProduce.Name</a></h6>
+                                        <h5 style="color: #d0021b; font-size: 15px; font-weight: unset;">@String.Format("{0:n0}", itemProduce.Price) @itemProduce.Unit</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="product__pagination" style="text-align: center">
+                    <ul class="pagination" style="display: block">
+                        @if (soTrang > 1)
+                        {
+                            <li style="display: inline-block">
+                                <a onclick="changePage('1')" aria-label="Previous" style="cursor: pointer">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        }
+                        @for (var i = (pageMax - numberPage) > 0 ? (pageMax > soTrang ? soTrang : pageMax) - (numberPage - 1) : 1; i <= pageMax; i++)
+                        {
+                            if (i <= soTrang)
+                            {
+                                <li style="display: inline-block"><a class="paging" id="page-@(@i)" onclick="changePage('@i')" style="cursor: pointer">@i</a></li>
+                            }
+                        }
+                        @if (soTrang > 1)
+                        {
+                            <li style="display: inline-block">
+                                <a onclick="changePage('@soTrang')" aria-label="Next" style="cursor: pointer">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->
+
+@if (Model.PosCategory != null)
+{
+    <script>
+        localStorage['activeCategory'] = "/@Model.PosCategory.Guid.ToString()";
+
+        var categories = $('#categories > li > a[href="/danh-muc/@Model.PosCategory.Guid.ToString()"]');
+        if (categories && categories.length > 0) {
+            var li = categories[0].parentNode;
+            li.classList.add("active");
+        }
+    </script>
+}
+else
+{
+    <script>
+        localStorage['activeCategory'] = "";
+    </script>
+}
+<script>
+    localStorage['activeMenu'] = "/danh-muc";
+    activeMenu();
+
+    var category = location.pathname.split('/')[2];
+
+    if (location.search) {
+        if (location.search.includes('page')) {
+            page = location.search.split('page=')[1].split('&')[0];
+        }
+        if (location.search.includes('sortBy')) {
+            sortBy = location.search.split('sortBy=')[1].split('&')[0];
+            $('#sortBy').val(sortBy);
+        }
+    }
+
+    function changePage(val) {
+        page = "page-" + val;
+        loadData();
+    }
+
+    function changeSortBy() {
+        sortBy = $('#sortBy').val();
+        loadData();
+    }
+
+    function loadData() {
+        location.href = location.origin + "/danh-muc" + (category ? "/" + category : location.pathname) + "?page=" + page + "&sortBy=" + sortBy;
+    }
+
+    var i = 1;
+    for (i = 1; i <= @soTrang; i++) {
+        if (page.includes(i)) {
+            $('.paging').removeClass('active');
+            $('#page-' + i).addClass('active');
+        }
+    }
+</script>
